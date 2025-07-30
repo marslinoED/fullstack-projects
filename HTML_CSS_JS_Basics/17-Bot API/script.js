@@ -26,8 +26,8 @@ async function generate() {
   Chat.push({ user: prompt });
   renderChat();
 
-  const API_URL = 'https://openrouter.ai/api/v1/chat/completions'; 
-  const API_KEY = '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'; 
+  const API_URL = window.config.API_URL;
+  const API_KEY = window.config.OPENROUTER_API_KEY; 
 
   const payload = {
     model: 'google/gemma-3n-e4b-it', 
