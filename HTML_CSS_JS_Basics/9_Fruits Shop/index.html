@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js"></script>
+</head>
+<header></header>
+
+<body onload="init()">
+    <div class="content">
+        <h1>Welcome to My Web Page</h1>
+        <p>Add new fruit object information</p>
+        <label for="nameInputField">Name:</label>
+        <input type="text" id="nameInputField" required>
+        <br><br>
+        <label for="priceInputField">Price:</label>
+        <input type="text" id="priceInputField" placeholder="" required>
+        <br><br>
+        <input type="submit" value="Add Fruit" onclick="addCar()">
+        <br><br>
+        <p id="fruitModel"></p>
+        <h2>Fruits List</h2>
+        <ul id="fruitList">
+        </ul>
+    </div>
+</body>
+<footer></footer>
+
+</html>

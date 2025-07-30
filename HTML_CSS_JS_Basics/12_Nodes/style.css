@@ -1,0 +1,54 @@
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+ul,
+ol,
+li {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+li.ParentNode:hover{
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+.content {
+    flex: 1;
+}
+
+li.fade-in {
+    animation: fadeInSlide 0.5s forwards;
+}
+
+li.fade-out {
+    animation: fadeOutSlide 0.5s forwards;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutSlide {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+}

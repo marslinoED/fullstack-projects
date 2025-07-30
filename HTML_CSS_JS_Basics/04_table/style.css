@@ -1,0 +1,90 @@
+h1 {
+    font-size: 50px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+h1:hover {
+    color: red;
+}
+
+p {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+p.lorem {
+    font-size: 15px;
+    color: #333;
+}
+p.lorem:hover{
+    background-color: rgb(113, 119, 125);
+}
+
+#NotLorem {
+    font-size: 20px;
+    color: red;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+a:visited {
+    color: rgb(48, 206, 48);
+    text-decoration: underline;
+    font-weight: 100;
+}
+
+a:link {
+    color: rgb(4, 66, 4);
+    text-decoration: underline;
+    font-weight: 100;
+}
+td:hover, th:hover{
+    background-color: rgb(113, 119, 125);
+}
+table, td{
+    background-color: transparent;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 80%;
+    height: 80%;
+    text-align: center;
+    vertical-align: middle;
+    }
+td {
+    background-color:aquamarine;
+    color: rgb(171, 68, 68);
+    font-size: 20px;
+
+    width: 25%;
+}
+.dual {
+    width: 33.33%;
+    height: 100px;
+}
+.t {
+    vertical-align: top
+}
+.b {
+    vertical-align: bottom
+}
+
+.l {
+    text-align: left
+}
+
+.c {
+    text-align: center
+}
+
+.r {
+    text-align: right
+}
+.bold{
+    font-weight: bold;
+    color: black;
+    background-color: transparent;
+}

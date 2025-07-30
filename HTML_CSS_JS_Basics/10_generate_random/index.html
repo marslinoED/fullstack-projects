@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js"></script>
+</head>
+
+<body onload="init()">
+    <!-- Floating particles background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <h1>Random Number Generator</h1>
+        
+        <div class="range-group">
+            <label for="minRangeInput">Minimum Range:</label>
+            <input type="range" min="0" max="100" value="0" id="minRangeInput" oninput="updateMinRangeValue()">
+            <span class="range-value" id="minRangeValue">0</span>
+        </div>
+        
+        <div class="range-group">
+            <label for="maxRangeInput">Maximum Range:</label>
+            <input type="range" min="0" max="100" value="100" id="maxRangeInput" oninput="updateMaxRangeValue()">
+            <span class="range-value" id="maxRangeValue">100</span>
+        </div>
+
+        <p id="RandomNumberP">?</p>
+        <button class="generate-btn" onclick="showAlert()">Generate Number</button>
+        
+        <div class="history-section">
+            <div class="history-label">Generated Numbers History:</div>
+            <textarea id="generatedNumbersTextarea" readonly rows="8" placeholder="Your generated numbers will appear here..."></textarea>
+        </div>
+    </div>
+</body>
+
+
+</html>
