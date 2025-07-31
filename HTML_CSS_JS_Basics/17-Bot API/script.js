@@ -32,10 +32,11 @@ async function generate() {
   renderChat();
 
 
-  fetch('https://chatbot-api-dun.vercel.app/api/proxy', {
+  fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `Bearer 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`
       },
       body: JSON.stringify({
         model: 'google/gemma-3n-e4b-it',
