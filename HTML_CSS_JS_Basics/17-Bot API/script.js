@@ -1,6 +1,11 @@
 var Chat = [];
 
 function renderChat() {
+
+  document.getElementById("textInputField").disabled = false;
+  document.getElementById("submitButton").disabled = false;
+  document.getElementById("textInputField").focus();
+
   const chatContainer = document.getElementById("chatContainer");
   chatContainer.innerHTML = '';
   Chat.forEach(msg => {
@@ -27,8 +32,7 @@ async function generate() {
   renderChat();
 
 
-  try {
-    const response = await fetch('https://chatbot-api-dun.vercel.app/api/proxy', {
+  fetch('https://chatbot-api-dun.vercel.app/api/proxy', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -44,21 +48,18 @@ async function generate() {
           }
         ]
       })
-    });
-    const data = await response.json();
+    }).then(res => res.json())
+    .then(data => {
     const responseMessage = data.choices?.[0]?.message?.content;
     Chat[Chat.length - 1].bot = responseMessage;
     renderChat();
     document.getElementById("textInputField").value = '';
-  } catch (error) {
+  })
+   .catch (error => {
     Chat[Chat.length - 1].bot = "Error: Could not get response.";
     renderChat();
     console.error('Error:', error);
-  } finally {
-    document.getElementById("textInputField").disabled = false;
-    document.getElementById("submitButton").disabled = false;
-    document.getElementById("textInputField").focus();
-  }
+  }); 
 }
 
 // Optional: allow Enter key to send
