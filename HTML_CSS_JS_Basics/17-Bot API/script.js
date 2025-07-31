@@ -30,8 +30,8 @@ async function generate() {
 
   const payload = {
     model: 'google/gemma-3n-e4b-it', 
-    temperature: 0.6,
-    max_tokens: 60,
+    // temperature: 0.6,
+    // max_tokens: 60,
     messages: [
       {
         role: 'user',
