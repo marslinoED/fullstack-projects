@@ -98,12 +98,12 @@
                     return;
                 }
 
-                // Populate the project list with GitHub Pages links
+                // Populate the project list with relative links for local development
                 directories.forEach(dir => {
                     const li = document.createElement('li');
                     li.innerHTML = `
-                        <a href="${baseGhPagesUrl}${dir.name}/">${dir.name}</a>
-                        <p class="description">Navigate to the ${dir.name} project on GitHub Pages.</p>
+                        <a href="${dir.name}/">${dir.name}</a>
+                        <p class="description">Navigate to the ${dir.name} project directory.</p>
                     `;
                     projectList.appendChild(li);
                 });
