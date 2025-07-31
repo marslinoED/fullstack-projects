@@ -2,6 +2,10 @@ var Chat = [];
 
 function renderChat() {
   const chatContainer = document.getElementById("chatContainer");
+  if (!chatContainer) {
+    console.error("chatContainer element not found");
+    return;
+  }
   chatContainer.innerHTML = '';
   Chat.forEach(msg => {
     const userDiv = document.createElement('div');
@@ -48,15 +52,24 @@ async function generate() {
       },
       body: JSON.stringify(payload)
     });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
     const data = await response.json();
     const responseMessage = data.choices?.[0]?.message?.content;
     Chat[Chat.length-1].bot = responseMessage;
     renderChat();
     document.getElementById("textInputField").value = '';
   } catch (error) {
-    Chat[Chat.length-1].bot = "Error: Could not get response.";
-    renderChat();
     console.error('Error:', error);
+    if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+      Chat[Chat.length-1].bot = "Error: CORS issue - API not accessible from this domain. Please check the API configuration.";
+    } else {
+      Chat[Chat.length-1].bot = "Error: Could not get response. " + error.message;
+    }
+    renderChat();
   } finally {
     document.getElementById("textInputField").disabled = false;
     document.getElementById("submitButton").disabled = false;
@@ -64,16 +77,19 @@ async function generate() {
   }
 }
 
-// Optional: allow Enter key to send
-const input = document.getElementById("textInputField");
-if (input) {
-  input.addEventListener("keydown", function(e) {
-    if (e.key === "Enter" && !input.disabled) {
-      generate();
-    }
-  });
-}
+// Wait for DOM to be ready before initializing
+document.addEventListener('DOMContentLoaded', function() {
+  // Optional: allow Enter key to send
+  const input = document.getElementById("textInputField");
+  if (input) {
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" && !input.disabled) {
+        generate();
+      }
+    });
+  }
 
-// Initial render
-renderChat();
+  // Initial render
+  renderChat();
+});
 
