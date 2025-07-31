@@ -5,52 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fullstack Projects Explorer</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: #252526;
+            padding: 30px;
+            border: 1px solid #3c3c3c;
+            border-radius: 4px;
         }
+        
         h1 {
             text-align: center;
-            color: #333;
+            color: #569cd6;
+            margin-bottom: 20px;
+            font-size: 24px;
         }
+        
+        p {
+            margin-bottom: 20px;
+            color: #9cdcfe;
+        }
+        
+        a {
+            color: #4ec9b0;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #6a9955;
+        }
+        
         ul {
             list-style: none;
             padding: 0;
         }
+        
         li {
-            margin: 10px 0;
+            margin: 8px 0;
+            padding: 8px;
+            background: #2d2d30;
+            border: 1px solid #3c3c3c;
+            border-radius: 3px;
         }
-        a {
-            text-decoration: none;
-            color: #007bff;
-            font-size: 18px;
+        
+        li a {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4ec9b0;
         }
-        a:hover {
-            text-decoration: underline;
+        
+        li a:hover {
+            color: #6a9955;
         }
+        
         .description {
-            color: #666;
-            font-size: 14px;
+            color: #858585;
+            font-size: 13px;
             margin-top: 5px;
         }
+        
         .error {
-            color: #d9534f;
+            color: #f44747;
             text-align: center;
+            padding: 10px;
+            background: #2d2d30;
+            border: 1px solid #f44747;
+            border-radius: 3px;
         }
+        
         .loading {
             text-align: center;
-            color: #666;
+            color: #858585;
+            font-style: italic;
         }
     </style>
 </head>
@@ -100,10 +141,7 @@
                 // Populate the project list with relative links for local development
                 directories.forEach(dir => {
                     const li = document.createElement('li');
-                    li.innerHTML = `
-                        <a href="${dir.name}/">${dir.name}</a>
-                        <p class="description">Navigate to the ${dir.name} project directory.</p>
-                    `;
+                    li.innerHTML = `<a href="${dir.name}/">${dir.name}</a>`;
                     projectList.appendChild(li);
                 });
 
