@@ -1,0 +1,13 @@
+1. user enters title
+2. title stored in the chat
+3. bot generate a reply and two oppisote replies of the chat
+4. saving the reply and the other replies into a nested node
+5. user choose the reply he will use
+6. the reply of the bot and the reply user choose sended to another model to summarize
+7. pushing the sumrization into the chat with a normal chat instructions bot: ,user: ,bot: ,user:
+8. bot generate a reply and two oppisote replies of the chat
+9. saving the reply and the other replies into a nested node
+10. user choose the reply he will use or end the chat
+
+
+
