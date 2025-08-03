@@ -26,7 +26,7 @@ async function generate() {
   Chat.push({ user: prompt });
   renderChat();
 
-  const API_URL = 'https://chatbot-api-dun.vercel.app/api/proxy'; 
+  const API_URL = 'https://openrouter-api-pi.vercel.app/api/proxy'; 
 
   const payload = {
     model: 'google/gemma-3n-e4b-it', 
