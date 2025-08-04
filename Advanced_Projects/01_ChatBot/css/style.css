@@ -181,6 +181,7 @@ body {
     background: var(--bg-secondary);
     border-radius: 0;
     box-shadow: var(--shadow-medium);
+    padding-bottom: 140px; /* Adjust to match choice-buttons height */
 }
 
 @media (min-width: 768px) {
@@ -265,6 +266,13 @@ body {
     background: var(--bg-tertiary);
     border-top: 1px solid var(--border-color);
     flex-shrink: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .choice-row {
