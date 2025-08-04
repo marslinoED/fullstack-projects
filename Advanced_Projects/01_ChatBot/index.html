@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Interactive AI ChatBot - Start conversations on any topic">
+    <meta name="theme-color" content="#0f0f23">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <title>AI ChatBot - Interactive Conversations</title>
+    
+    <!-- Preload fonts for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body onload="init()">
+    <div id="titleModal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to ChatBot!</h2>
+            <p>Enter a topic you'd like to chat about:</p>
+            <input type="text" id="titleInput" placeholder="e.g., Space, Cooking, Movies..." maxlength="50">
+            <div class="modal-buttons">
+                <button id="startChatBtn" onclick="startChatWithTitle()">Start Chat</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be dynamically added here -->
+            </div>
+            <div class="choice-buttons">
+                <div class="choice-row">
+                    <div class="choice-column">
+                        <button class="choice-btn" id="choice1" onclick="makeChoice(1)">Choice 1</button>
+                        <button class="choice-btn" id="choice2" onclick="makeChoice(2)">Choice 2</button>
+                    </div>
+                    <button class="tree-btn" id="generateTreeBtn" onclick="generateTree()">Tree</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
