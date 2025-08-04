@@ -356,7 +356,7 @@ function showNotification(message, type = 'info') {
 }
 
 async function response(chat) {
-  const response = await fetch('https://openrouter-api-pi.vercel.app/api/proxy', {
+  const response = await fetch('https://openrouter-api-phi.vercel.app/api/proxy', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -403,7 +403,7 @@ async function response(chat) {
 }
 
 async function summarize(bot, user) {
-  const response = await fetch('https://openrouter-api-pi.vercel.app/api/proxy', {
+  const response = await fetch('https://openrouter-api-phi.vercel.app/api/proxy', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
