@@ -206,13 +206,13 @@ async function makeChoice(choiceNumber) {
     if (isLoading) return;
 
     disableButtons();
-    showLoadingState();
-
+    
     const button = document.getElementById(`choice${choiceNumber}`);
     const userText = button.textContent;
-
+    
     // Add user message to chat display
     addMessage(userText, 'user');
+    showLoadingState();
 
     // Save the complete message object to chat array
     const messageObject = {
