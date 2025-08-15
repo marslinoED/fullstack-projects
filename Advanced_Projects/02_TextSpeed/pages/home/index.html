@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js"></script>
+</head>
+<header></header>
+
+<body onload="init()">
+    <button class="settings-btn" onclick="window.location.href='../settings/'">
+        <img id="userImg" src="https://randomuser.me/api/portraits/men/1.jpg" alt="User" class="user-icon" />
+    </button>
+    <div class="main-content">
+        <div class="sentence-length-row">
+            <label for="sentenceLength">Sentence length: </label>
+            <select id="sentenceLength" style="width: 120px;"></select>
+            <button id="realisticToggle" class="realistic-toggle" type="button">Realistic: Off</button>
+        </div>
+        <div id="typingTest" class="typing-test-area">
+            <!-- The text to type will be rendered here -->
+        </div>
+        <textarea id="typingInput" class="typing-input" autocomplete="off" autocorrect="off" autocapitalize="off"
+            spellcheck="false" disabled placeholder="Start typing or click Start..." rows="1"></textarea>
+        <div class="btn-row">
+            <button class="start-btn" id="startBtn">Start</button>
+            <button class="reset-btn" id="resetBtn" title="Restart">
+                <img src="../../assets/reply.png" alt="Restart" width="24" height="24" />
+            </button>
+            <span id="wpmLabel" class="wpm-label"></span>
+        </div>
+    </div>
+    <div class="content"></div>
+</body>
+<footer></footer>
+
+</html>
