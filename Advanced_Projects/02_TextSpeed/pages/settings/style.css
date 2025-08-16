@@ -8,3 +8,74 @@ body {
 .content {
     flex: 1;
 }
+
+html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ece9f7 0%, #d1d8e0 100%);
+      min-height: 100vh;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .settings-content {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 32px rgba(60,60,90,0.10), 0 1.5px 4px rgba(60,60,90,0.08);
+      padding: 40px 32px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      max-width: 600px;
+      margin: 40px auto 0 auto;
+      position: relative;
+    }
+    #user-info img {
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+    .back-btn {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: #e0e0e0;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: background 0.2s;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .back-btn:hover {
+      background: #cccccc;
+    }
+    #user-info {
+      margin-top: 60px;
+      text-align: center;
+    }
+    input[type="button"] {
+      margin-top: 18px;
+      padding: 10px 28px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      border: none;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-weight: 500;
+    }
+    input[type="button"]:hover {
+      background: #0056b3;
+    }
