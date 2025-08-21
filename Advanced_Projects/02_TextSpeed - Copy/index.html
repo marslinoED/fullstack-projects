@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+    </style>
+    <script>
+        function init() {
+
+            const uid = handleLocalStorage("get", "uid");
+            // const uid = null;
+            if (!uid) {
+                window.location.href = 'login.html';
+            } else {
+                window.location.href = 'home.html';
+            }
+            console.log("Current User UID:", uid);
+        }
+        function handleLocalStorage(action, key, value) {
+            if (action === "get") return localStorage.getItem(key);
+            if (action === "set") localStorage.setItem(key, JSON.stringify(value));
+            if (action === "remove") localStorage.removeItem(key);
+        }
+        window.onload = init;
+    </script>
+</head>
+<header></header>
+
+<body onload="init()">
+    <div class="content"></div>
+</body>
+<footer></footer>
+
+</html>

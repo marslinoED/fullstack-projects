@@ -1,0 +1,25 @@
+{
+  "words": [
+    "apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew",
+    "iceberg", "jackfruit", "kiwi", "lemon", "mango", "nectarine", "orange", "papaya",
+    "quince", "raspberry", "strawberry", "tangerine", "ugli", "vanilla", "watermelon", "xigua",
+    "yam", "zucchini", "ant", "bee", "cat", "dog", "elephant", "fox", "giraffe", "hippo",
+    "iguana", "jaguar", "kangaroo", "lion", "monkey", "newt", "owl", "penguin", "quail", "rabbit",
+    "snake", "tiger", "urchin", "vulture", "wolf", "xerus", "yak", "zebra", "air", "ball",
+    "cloud", "dirt", "earth", "fire", "grass", "hill", "ice", "jungle", "kite", "lake",
+    "mountain", "night", "ocean", "planet", "queen", "river", "sun", "tree", "umbrella", "valley",
+    "wind", "xenon", "yard", "zenith", "actor", "baker", "chef", "dancer", "engineer", "farmer",
+    "guitarist", "hunter", "inventor", "juggler", "knight", "librarian", "musician", "nurse", "officer", "pilot",
+    "queen", "researcher", "scientist", "teacher", "umpire", "veteran", "writer", "xylophonist", "yogi", "zoologist",
+    "run", "jump", "swim", "fly", "crawl", "slide", "climb", "dance", "sing", "paint",
+    "draw", "write", "read", "listen", "speak", "cook", "bake", "clean", "drive", "ride",
+    "sleep", "dream", "think", "play", "fight", "laugh", "cry", "smile", "frown", "hope",
+    "love", "hate", "fear", "trust", "believe", "wish", "care", "share", "help", "learn",
+    "teach", "grow", "change", "build", "break", "fix", "create", "destroy", "watch", "wait",
+    "happy", "sad", "angry", "calm", "brave", "shy", "proud", "jealous", "kind", "rude",
+    "strong", "weak", "fast", "slow", "hot", "cold", "warm", "cool", "bright", "dark",
+    "soft", "hard", "smooth", "rough", "clean", "dirty", "rich", "poor", "young", "old",
+    "first", "last", "next", "past", "future", "north", "south", "east", "west", "center",
+    "left", "right", "up", "down", "inside", "outside", "above", "below", "near", "far"
+  ]
+}
