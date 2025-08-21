@@ -1,5 +1,5 @@
 # fullstack-projects
-my junior fullstack projects
+my junior Fullstack projects
 ## HTML_CSS_JS_Basics/02_TextSpeed
 
 ### Try Out
