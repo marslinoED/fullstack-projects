@@ -1,0 +1,98 @@
+{
+    "Documentation": "https://www.postman.com/supply-physicist-71661888/my-workspace/collection/0ln2smz/route-e-commerce-app",
+    "Authorization": {
+        "Login": {
+            "API": "https://ecommerce.routemisr.com/api/v1/auth/signin",
+            "Method": "POST",
+            "Body": {
+                "email": "string",
+                "password": "string"
+            },
+            "Response": {
+                "message": "success",
+                "user": {
+                    "name": "string",
+                    "email": "string",
+                    "role": "string"
+                },
+                "token": "string"
+            }
+        },
+        "Register": {
+            "API": "https://ecommerce.routemisr.com/api/v1/auth/signup",
+            "Method": "POST",
+            "Body": {
+                "name": "string",
+                "email": "string",
+                "password": "string",
+                "rePassword": "string",
+                "phone": "string"
+            },
+            "Response": {
+                "message": "success",
+                "user": {
+                    "name": "string",
+                    "email": "string",
+                    "role": "string"
+                },
+                "token": "string"
+            }
+        }
+    },
+    "products": {
+        "API": "https://ecommerce.routemisr.com/api/v1/products",
+        "Method": "GET",
+        "Response": {
+            "results": "number",
+            "metadata": {
+                "currentPage": "number",
+                "numberOfPages": "number",
+                "limit": "number",
+                "nextPage": "number"
+            },
+            "data": [
+                {
+                    "sold": "number",
+                    "images": [
+                        "string"
+                    ],
+                    "subcategory": [
+                        {
+                            "_id": "string",
+                            "name": "string",
+                            "slug": "string",
+                            "category": "string"
+                        }
+                    ],
+                    "ratingsQuantity": "number",
+                    "_id": "string",
+                    "title": "string",
+                    "slug": "string",
+                    "description": "string",
+                    "quantity": "number",
+                    "price": "number",
+                    "imageCover": "string",
+                    "category": {
+                        "_id": "string",
+                        "name": "string",
+                        "slug": "string",
+                        "image": "string"
+                    },
+                    "brand": {
+                        "_id": "string",
+                        "name": "string",
+                        "slug": "string",
+                        "image": "string"
+                    },
+                    "ratingsAverage": "number",
+                    "createdAt": "string",
+                    "updatedAt": "string",
+                    "id": "string"
+                },
+                {
+                    "...": "..."
+                }
+            ]
+        }
+    }
+}

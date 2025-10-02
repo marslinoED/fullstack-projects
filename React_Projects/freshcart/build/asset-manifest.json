@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "./static/css/main.7a06994a.css",
+    "main.js": "./static/js/main.8b248685.js",
+    "static/js/453.28a82d34.chunk.js": "./static/js/453.28a82d34.chunk.js",
+    "static/media/light-pattern.svg": "./static/media/light-pattern.ed706aff39a009de4e80.svg",
+    "static/media/slider-image-1.jpeg": "./static/media/slider-image-1.92200ddb54f84e0e8c71.jpeg",
+    "static/media/slider-image-3.jpeg": "./static/media/slider-image-3.2c56649c9cbe2e19b86f.jpeg",
+    "static/media/bootstrap-icons.woff?": "./static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/wishList.svg": "./static/media/wishList.27b4b70c133dbb5fa3624842ce62d778.svg",
+    "static/media/slider-image-2.jpeg": "./static/media/slider-image-2.7a4a78a90acc3d5847cb.jpeg",
+    "static/media/bootstrap-icons.woff2?": "./static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
+    "static/media/empty-cart.svg": "./static/media/empty-cart.97fb3c19229a1ba90557c158abbeecab.svg",
+    "static/media/fa-solid-900.woff2": "./static/media/fa-solid-900.0ae4e6254fc19607c79e.woff2",
+    "static/media/page_not_found.svg": "./static/media/page_not_found.084f5f5b0eb10d3216cb7c939108e1f6.svg",
+    "static/media/fa-brands-400.woff2": "./static/media/fa-brands-400.e7461d69dbbff1310a5c.woff2",
+    "static/media/no-products.svg": "./static/media/no-products.b4f9f24eddeb2c654e745972b4ac7d83.svg",
+    "static/media/empty-orders.svg": "./static/media/empty-orders.bb268bb96fb25e2531ada376677c07da.svg",
+    "static/media/fa-regular-400.woff2": "./static/media/fa-regular-400.1f38a564cd9eae27ebc3.woff2",
+    "static/media/freshcart-logo.svg": "./static/media/freshcart-logo.c2fd782d8433fed1683a19793d3382e7.svg",
+    "static/media/fa-v4compatibility.woff2": "./static/media/fa-v4compatibility.661bd6b7245d5205d3e1.woff2",
+    "index.html": "./index.html",
+    "main.7a06994a.css.map": "./static/css/main.7a06994a.css.map",
+    "main.8b248685.js.map": "./static/js/main.8b248685.js.map",
+    "453.28a82d34.chunk.js.map": "./static/js/453.28a82d34.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7a06994a.css",
+    "static/js/main.8b248685.js"
+  ]
+}

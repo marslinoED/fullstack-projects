@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+
+body {
+  margin: 0;
+  background-image: url('./Assets/Images/Background/light-pattern.svg');
+  font-family: 'Alkatra', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Changing the primary color */
+:root {
+  --bs-primary: #099309;
+}
+
+/* Show dropdown menu on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+  /* يمنع الـ jump */
+}
+
+/* changing drop down color */
+.dropdown-item:hover {
+  color: var(--bs-primary);
+
+}
+
+/* changing icon color */
+.nav-icon {
+  color: black;
+}
+
+.nav-icon:hover {
+  color: var(--bs-primary)
+}
+
+.link-style {
+  text-decoration: none;
+  color: gray;
+}
+
+.link-style:hover {
+  color: var(--bs-primary);
+}
+
+.scale:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--bs-primary) 0%, #0c2b13ff 50%, var(--bs-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
