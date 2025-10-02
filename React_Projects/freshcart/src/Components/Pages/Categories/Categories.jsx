@@ -65,7 +65,7 @@ export default function Categories() {
         {categories.length === 0 ? <h3 className='text-center my-5'>No categories found for this brand.</h3> :
           <Swiper
             modules={[Autoplay]}
-            slidesPerView={4}
+            slidesPerView="auto"
             spaceBetween={15}
             loop={true}
             autoplay={{
