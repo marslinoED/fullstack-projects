@@ -21,34 +21,28 @@ A modern e-commerce web application built with React for fresh groceries and eve
 ## Screenshots
 
 ### Home Page
-![Home](ScreenShots/Screenshot%202025-10-02%20220842.png)
-
-### Product Categories
-![Categories](ScreenShots/Screenshot%202025-10-02%20220934.png)
-
-### Product Details
-![Product Details](ScreenShots/Screenshot%202025-10-02%20220950.png)
+![Home](Screenshots/Home.png)
 
 ### Shopping Cart
-![Shopping Cart](ScreenShots/Screenshot%202025-10-02%20221009.png)
+![Shopping Cart](Screenshots/Cart.png)
 
 ### User Authentication
-![Login](ScreenShots/Screenshot%202025-10-02%20221029.png)
+![Login](Screenshots/Auth.png)
 
 ### Brands
-![Brands](ScreenShots/Screenshot%202025-10-02%20221040.png)
+![Brands](Screenshots/Brands.png)
 
 ### Wishlist
-![Wishlist](ScreenShots/Screenshot%202025-10-02%20221106.png)
+![Wishlist](Screenshots/Wishlist.png)
 
 ### Orders
-![Orders](ScreenShots/Screenshot%202025-10-02%20221122.png)
+![Orders](Screenshots/Orders.png)
 
 ### Checkout
-![Checkout](ScreenShots/Screenshot%202025-10-02%20221242.png)
+![Checkout](Screenshots/Checkout.png)
 
 ### Order Confirmation
-![Order Confirmation](ScreenShots/Screenshot%202025-10-02%20221333.png)
+![Order Confirmation](Screenshots/Navbar.png)
 
 ## Tech Stack
 
