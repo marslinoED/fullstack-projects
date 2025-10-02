@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# FreshCart 🛒
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern e-commerce web application built with React for fresh groceries and everyday essentials.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Product Catalog** - Browse fresh groceries and products
+- **Shopping Cart** - Add/remove items with quantity management
+- **User Authentication** - Secure login and registration
+- **Categories & Brands** - Filter products by categories and brands
+- **Wishlist** - Save favorite items for later
+- **Order Management** - Track order history and status
+- **Responsive Design** - Mobile-friendly interface
 
-### `npm start`
+## Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Home Page
+![Home](ScreenShots/Screenshot%202025-10-02%20220842.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Product Categories
+![Categories](ScreenShots/Screenshot%202025-10-02%20220934.png)
 
-### `npm test`
+### Product Details
+![Product Details](ScreenShots/Screenshot%202025-10-02%20220950.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Shopping Cart
+![Shopping Cart](ScreenShots/Screenshot%202025-10-02%20221009.png)
 
-### `npm run build`
+### User Authentication
+![Login](ScreenShots/Screenshot%202025-10-02%20221029.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Brands
+![Brands](ScreenShots/Screenshot%202025-10-02%20221040.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Wishlist
+![Wishlist](ScreenShots/Screenshot%202025-10-02%20221106.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Orders
+![Orders](ScreenShots/Screenshot%202025-10-02%20221122.png)
 
-### `npm run eject`
+### Checkout
+![Checkout](ScreenShots/Screenshot%202025-10-02%20221242.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Order Confirmation
+![Order Confirmation](ScreenShots/Screenshot%202025-10-02%20221333.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Frontend:** React 19, Bootstrap 5, Font Awesome
+- **Routing:** React Router DOM
+- **Forms:** Formik
+- **HTTP Client:** Axios
+- **UI Components:** React Hot Toast, Swiper
+- **Styling:** Bootstrap Icons, Custom CSS
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+```bash
+# Install dependencies
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Start development server
+npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Build for production
+npm run build
+```
 
-### Code Splitting
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+src/
+├── Components/
+│   ├── Layout/
+│   ├── Pages/
+│   └── Shared/
+├── Context/
+├── Assets/
+└── App.jsx
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*A fresh approach to online grocery shopping* 🥬
