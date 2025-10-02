@@ -1,4 +1,10 @@
-# FreshCart 🛒
+# fullstack-projects
+my junior fullstack projects
+# FreshCart 
+### Try Out
+<a href="https://marslinoed.github.io/fullstack-projects/React_Projects/build" target="_blank">
+  <img src="../try-it-out.svg" alt="Try it live"> 
+</a>
 
 A modern e-commerce web application built with React for fresh groceries and everyday essentials.
 
