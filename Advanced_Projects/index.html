@@ -134,7 +134,7 @@
 
                 // Filter for directories only (assumed to be projects)
                 const directories = contents.filter(item => item.type === 'dir');
-
+                console.log(directories);
                 if (directories.length === 0) {
                     projectList.innerHTML = '<li>No project directories found in the repository.</li>';
                     return;
