@@ -6,7 +6,7 @@ my junior fullstack projects
   <img src="../../try-it-out.svg" alt="Try it live"> 
 </a>
 
-A modern e-commerce web application built with React for fresh groceries and everyday essentials.
+A modern e-commerce web application built with React for everyday essentials.
 
 ## Features
 
@@ -80,5 +80,3 @@ src/
 ```
 
 ---
-
-*A fresh approach to online grocery shopping* 🥬
