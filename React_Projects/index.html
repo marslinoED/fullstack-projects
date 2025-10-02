@@ -103,8 +103,6 @@
         <h1>Fullstack Projects Explorer</h1>
         <p>Explore all projects in the <a href="https://github.com/MarslinoEd/fullstack-projects"
                 target="_blank">MarslinoEd/fullstack-projects</a> repository.</p>
-        <div id="loading" class="loading">Loading projects...</div>
-        <div id="error" class="error" style="display: none;"></div>
         <ul id="project-list"></ul>
     </div>
 
@@ -113,22 +111,19 @@
         const owner = 'MarslinoEd';
         const repo = 'fullstack-projects';
         const folder = 'React-Projects';
+        const projectList = document.getElementById('project-list');
         const directories = [
             {
-                name: 'sample-project-1',
-                description: 'A sample React project for demonstration.'
+                name: 'Freshcart',
+                description: 'E-commerce Website with React.',
+                url: 'https://github.com/MarslinoEd/fullstack-projects/tree/main/React-Projects/Freshcart'
             },
-            {
-                name: 'sample-project-2',
-                description: 'Another example React project.'
-            }
         ];
         directories.forEach(dir => {
             const li = document.createElement('li');
-            li.innerHTML = `<a href="${dir.name}/">${dir.name}</a>`;
+            li.innerHTML = `<a href="${dir.url}">${dir.name}</a>`;
             projectList.appendChild(li);
         });
-        loading.style.display = 'none';
     </script>
 </body>
 
