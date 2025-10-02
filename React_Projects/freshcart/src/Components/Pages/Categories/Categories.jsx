@@ -75,7 +75,7 @@ export default function Categories() {
             grabCursor={true}
           >
             {categories.map(category => (
-              <SwiperSlide key={category._id}>
+              <SwiperSlide key={category._id} style={{ maxWidth: "200px" }}>
                 <div className="category-card" onClick={() => setCategoryFilter(category._id)}>
                   <img src={category.image} alt={category.name} />
                   <div className="category-name">{category.name}</div>
