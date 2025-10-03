@@ -259,7 +259,7 @@ export default function ProductsContextProvider(props) {
       return false;
     }
     try {
-      const { data } = await axios.post(`${BaseUrl}/orders/checkout-session/${id}?url=http://localhost:3000`, {
+      const { data } = await axios.post(`${BaseUrl}/orders/checkout-session/${id}?url=https://marslinoed.github.io/fullstack-projects/React_Projects/freshcart/build/`, {
         "shippingAddress": shippingDetails
       }, {
         headers: { "token": Token }
