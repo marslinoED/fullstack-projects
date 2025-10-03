@@ -18,7 +18,7 @@ import Cart from './Components/Pages/Cart/Cart';
 import Checkout from './Components/Pages/Checkout/Checkout';
 import { useContext } from 'react';
 import { Toaster } from 'react-hot-toast';
-import Orders from './Components/Pages/Orders/Orders';
+import AllOrders from './Components/Pages/AllOrders/AllOrders';
 
 
 function AppRoutes() {
@@ -36,7 +36,7 @@ function AppRoutes() {
         { path: '/checkout/:id', element: <Checkout /> },
         { path: '/wishlist', element: User && Token ? <Wishlist /> : <Register /> },
         { path: '/cart', element: User && Token ? <Cart /> : <Register /> },
-        { path: '/orders', element: User && Token ? <Orders /> : <Register /> },
+        { path: '/allorders', element: User && Token ? <AllOrders /> : <Register /> },
         { path: '/brands', element: <Brands />, children: [{ path: ':id', element: <Branddetails /> }] },
         { path: '*', element: <Notfound /> },
       ]

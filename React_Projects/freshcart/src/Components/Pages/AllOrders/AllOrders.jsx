@@ -6,7 +6,7 @@ import Loading from '../../Shared/Loading/Loading';
 import { Link } from 'react-router-dom';
 import empty_orders_img from '../../../Assets/Images/Icons/empty-orders.svg'
 
-export default function Orders() {
+export default function AllOrders() {
   const { Token } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [orders, setOrders] = useState([]);

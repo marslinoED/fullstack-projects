@@ -22,7 +22,7 @@ export default function Cart() {
       <div className="w-100 d-flex justify-content-between align-items-center mb-4" style={{ maxWidth: '1200px' }}>
         <h2 className='mb-0'>My <span className="gradient-text">Cart</span></h2>
         <Link
-          to="/orders"
+          to="/allorders"
           className="btn btn-sm"
           style={{ background: 'var(--bs-primary)', color: 'white' }}
           title="View your order history"

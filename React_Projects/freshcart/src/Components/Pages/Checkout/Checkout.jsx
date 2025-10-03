@@ -64,7 +64,7 @@ export default function Checkout() {
     if (paymentMethod === 'cash') {
       const result = await submitCashPayment(shippingDetails, id);
       if (result) {
-        navigate('/orders');
+        navigate('/allorders');
       }
     } else if (paymentMethod === 'credit') {
       await submitCreditPayment(shippingDetails, id);
