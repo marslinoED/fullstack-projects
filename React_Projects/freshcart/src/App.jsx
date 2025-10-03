@@ -39,7 +39,7 @@ function AppRoutes() {
         { path: '/allorders', element: User && Token ? <AllOrders /> : <Register /> },
         { path: '/brands', element: <Brands />, children: [{ path: ':id', element: <Branddetails /> }] },
         { path: '*', element: <Notfound /> },
-      ]
+      ],
     },
   ]);
   return <RouterProvider router={router} />;
