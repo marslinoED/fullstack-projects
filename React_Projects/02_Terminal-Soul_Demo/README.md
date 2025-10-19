@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# fullstack-projects
+my junior fullstack projects
+# Terminal Soul 
+### Try Out
+<a href="https://marslinoed.github.io/fullstack-projects/React_Projects/02_Terminal-Soul_Demo/build" target="_blank">
+  <img src="../../assets/icons/try-it-out.svg" alt="Try it live"> 
+</a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*A fun, interactive terminal‑style experience built with React*
 
-## Available Scripts
+## Table of Contents
+- [About the Project](#about-the-project)
+- [Demo](#demo)
+- [Built With](#built-with)
+- [Features](#features)
+- [Project Structure](#project-structure)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## About the Project
+Terminal‑Soul Demo is a React project where the UI is styled and behaves like a command‑line terminal — think of typing commands, getting responses, navigating via text commands, etc. The idea is to merge the nostalgic “terminal” vibe with modern web UI / React‑powered interactivity.
+This project was created to explore interactive UI paradigms, play with React component state & command parsing logic, and to ultimately have a little “experience” rather than just a typical list‑and‑button web app.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Demo
 
-### `npm test`
+### News Page
+![News](Screenshots/news.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Menu Page
+![Menu](Screenshots/menu.png)
 
-### `npm run build`
+### Transitions Page
+![Transitions](Screenshots/transitions.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Commands Page
+![Commands](Screenshots/commands.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Games Page
+![Games](Screenshots/games.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Boot Page
+![Boot](Screenshots/booting.png)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Built With
+- React (create‑react‑app or your chosen scaffold)
+- bootstrap css framework / Styled Components
+- Node & npm for development environment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Features
+- Terminal‑like UI component for user interaction.
+- Built‑in commands like `help`, `clear`, `manual`.
+- Built‑in apps like `SmartNews`, `calender`.
+- Command history navigation.
+- Customizable terminal aesthetics.
+- Lightweight and fast React setup.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Structure
+```
+/public
+  index.html
+/src
+  /components
+    Terminal.jsx
+    CommandParser.js
+  /styles
+    terminal.css
+  App.jsx
+  index.js
+package.json
+README.md
+```

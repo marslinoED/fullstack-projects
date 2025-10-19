@@ -5,8 +5,14 @@ my junior fullstack projects
 <a href="https://marslinoed.github.io/fullstack-projects/React_Projects/01_Freshcart/build" target="_blank">
   <img src="../../assets/icons/try-it-out.svg" alt="Try it live"> 
 </a>
+*A modern e-commerce web application built with React for everyday essentials.*
 
-A modern e-commerce web application built with React for everyday essentials.
+## Table of Contents
+- [Features](#Features)
+- [Screenshots](#Screenshots)
+- [Tech Stack](#TechStack)
+- [Getting Started](#Getting_Started)
+- [Project Structure](#Project_Structure)
 
 ## Features
 
@@ -44,7 +50,7 @@ A modern e-commerce web application built with React for everyday essentials.
 ### Order Confirmation
 ![Order Confirmation](Screenshots/Navbar.png)
 
-## Tech Stack
+## TechStack
 
 - **Frontend:** React 19, Bootstrap 5, Font Awesome
 - **Routing:** React Router DOM
@@ -53,7 +59,7 @@ A modern e-commerce web application built with React for everyday essentials.
 - **UI Components:** React Hot Toast, Swiper
 - **Styling:** Bootstrap Icons, Custom CSS
 
-## Getting Started
+## Getting_Started
 
 ```bash
 # Install dependencies
@@ -66,7 +72,7 @@ npm start
 npm run build
 ```
 
-## Project Structure
+## Project_Structure
 
 ```
 src/
