@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fullstack Projects Explorer</title>
     <link rel="icon" type="image/png" href="./icons/home_icon.png">
-    <link rel="stylesheet" href="./.css/style.css">
+    <link rel="stylesheet" href="./.css/style.css" type="text/css">
 </head>
+
 <body>
     <div class="container">
         <h1>Fullstack Projects Explorer</h1>
-        <p>Explore all projects in the <a href="https://github.com/MarslinoEd/fullstack-projects" target="_blank">MarslinoEd/fullstack-projects</a> repository.</p>
+        <p>Explore all projects in the <a href="https://github.com/MarslinoEd/fullstack-projects"
+                target="_blank">MarslinoEd/fullstack-projects</a> repository.</p>
         <div id="loading" class="loading">Loading projects...</div>
         <div id="error" class="error" style="display: none;"></div>
         <ul id="project-list"></ul>
@@ -35,7 +38,7 @@
             try {
                 const headers = token ? { Authorization: `token ${token}` } : {};
                 const response = await fetch(apiUrl, { headers });
-                
+
                 if (!response.ok) {
                     throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
                 }
@@ -70,4 +73,5 @@
         window.onload = fetchRepoContents;
     </script>
 </body>
-</html> 
+
+</html>
