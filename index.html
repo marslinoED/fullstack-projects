@@ -141,6 +141,7 @@
 
                 // Populate the project list with relative links for local development
                 directories.forEach(dir => {
+                    if (dir.name.startsWith('.')) return; // Skip hidden directories
                     const li = document.createElement('li');
                     li.innerHTML = `<a href="${dir.name}/">${dir.name}</a>`;
                     projectList.appendChild(li);
