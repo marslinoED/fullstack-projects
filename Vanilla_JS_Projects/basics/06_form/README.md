@@ -1,8 +1,8 @@
 # fullstack-projects
 my junior fullstack projects
-## HTML_CSS_JS_Basics/06_form
+## Vanilla_JS_Projects/basics/06_form
 
 ### Try Out
-<a href="https://marslinoed.github.io/fullstack-projects/HTML_CSS_JS_Basics/06_form" target="_blank">
-  <img src="../../try-it-out.svg" alt="Try it live"> 
+<a href="https://marslinoed.github.io/fullstack-projects/Vanilla_JS_Projects/basics/06_form" target="_blank">
+  <img src="../../../assets/icons/try-it-out.svg" alt="Try it live"> 
 </a>

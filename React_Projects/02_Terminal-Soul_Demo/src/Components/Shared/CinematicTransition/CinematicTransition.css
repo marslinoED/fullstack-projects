@@ -1,0 +1,254 @@
+.cinematic-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.transition-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Power Off Animation */
+.power-off {
+    background: transparent;
+}
+
+.fade-to-black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    animation: fadeToBlack 1.5s ease-out forwards;
+}
+
+@keyframes fadeToBlack {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Title Screen */
+.title-screen {
+    background: #000000;
+    color: #ffffff;
+}
+
+.game-title {
+    text-align: center;
+    animation: titleAppear 2s ease-out;
+}
+
+.main-title {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+    letter-spacing: 8px;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+.title-subtitle {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    opacity: 0.8;
+    color: #cccccc;
+}
+
+@keyframes titleAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes titleGlow {
+    0% {
+        text-shadow: 
+            0 0 10px rgba(255, 255, 255, 0.8),
+            0 0 20px rgba(255, 255, 255, 0.6),
+            0 0 30px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        text-shadow: 
+            0 0 15px rgba(255, 255, 255, 1),
+            0 0 25px rgba(255, 255, 255, 0.8),
+            0 0 35px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Chapter Screen */
+.chapter-screen {
+    background: #000000;
+    color: #ffffff;
+}
+
+.chapter-title {
+    text-align: center;
+    animation: chapterSlide 2s ease-out;
+}
+
+.chapter-number {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    letter-spacing: 6px;
+    color: #888888;
+    text-shadow: 
+        0 0 8px rgba(136, 136, 136, 0.8),
+        0 0 16px rgba(136, 136, 136, 0.4);
+}
+
+.chapter-name {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    opacity: 0.9;
+    color: #aaaaaa;
+    font-style: italic;
+}
+
+@keyframes chapterSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Time Skip Transition */
+.time-skip-title {
+    text-align: center;
+    animation: timeSkipScale 3s ease-out;
+}
+
+.time-skip-text {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 6px;
+    color: #ffffff;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes timeSkipScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+        filter: blur(10px);
+    }
+    30% {
+        opacity: 0.5;
+        transform: scale(0.6);
+        filter: blur(5px);
+    }
+    70% {
+        opacity: 0.9;
+        transform: scale(1.1);
+        filter: blur(1px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px);
+    }
+}
+
+/* Power On Animation */
+.power-on {
+    background: transparent;
+}
+
+.fade-from-black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    animation: fadeFromBlack 1.5s ease-out forwards;
+}
+
+@keyframes fadeFromBlack {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+    
+    .title-subtitle {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+    
+    .chapter-number {
+        font-size: 2rem;
+        letter-spacing: 4px;
+    }
+    
+    .chapter-name {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .title-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .chapter-number {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .chapter-name {
+        font-size: 1rem;
+    }
+}
