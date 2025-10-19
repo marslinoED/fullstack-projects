@@ -4,5 +4,5 @@ my junior fullstack projects
 
 ### Try Out
 <a href="https://marslinoed.github.io/fullstack-projects/Vanilla_JS_Projects" target="_blank">
-  <img src="../try-it-out.svg" alt="Try it live"> 
+  <img src="../assets/icons/try-it-out.svg" alt="Try it live"> 
 </a>

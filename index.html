@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fullstack Projects Explorer</title>
-    <link rel="icon" type="image/png" href="./icons/home_icon.png">
-    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="icon" type="image/png" href="assets/icons/home_icon.png">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -55,8 +55,7 @@
 
                 // Populate the project list with relative links for local development
                 directories.forEach(dir => {
-                    // Skip directories that start with a lowercase letter
-                    if (/^[a-z]/.test(dir.name)) return;
+                    if (dir.name.startsWith('assets')) return; // Skip hidden directories
                     const li = document.createElement('li');
                     li.innerHTML = `<a href="${dir.name}/">${dir.name}</a>`;
                     projectList.appendChild(li);
