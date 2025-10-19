@@ -1,6 +1,6 @@
 # fullstack-projects
 my junior fullstack projects
-## React_Projects
+## Vanilla_JS_Projects
 
 ### Try Out
 <a href="https://marslinoed.github.io/fullstack-projects/Vanilla_JS_Projects" target="_blank">
