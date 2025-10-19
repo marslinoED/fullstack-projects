@@ -2,7 +2,7 @@
 my junior fullstack projects
 # FreshCart 
 ### Try Out
-<a href="https://marslinoed.github.io/fullstack-projects/React_Projects/01_freshcart/build" target="_blank">
+<a href="https://marslinoed.github.io/fullstack-projects/React_Projects/01_Freshcart/build" target="_blank">
   <img src="../../assets/icons/try-it-out.svg" alt="Try it live"> 
 </a>
 
