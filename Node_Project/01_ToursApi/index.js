@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const tours_route = require("./routes/toursRoute");
 const users_route = require("./routes/usersRoute");
 const reviews_route = require("./routes/reviewsRoute");
+const documentation_route = require("./routes/documentationRoute");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
 const { isConnected } = require("./utils/connectDB");
@@ -76,7 +77,7 @@ app.use((req, res, next) => {
   }
   next();
 });
-
+app.use("/", documentation_route);
 app.use("/api/v1/tours", tours_route);
 app.use("/api/v1/users", users_route);
 app.use("/api/v1/reviews", reviews_route);
