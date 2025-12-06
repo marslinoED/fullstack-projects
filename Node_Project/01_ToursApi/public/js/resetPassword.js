@@ -29,7 +29,8 @@ submitBtn.addEventListener("click", async () => {
 
     if (!res.ok) throw new Error(data.message);
 
-    statusDiv.textContent = "✅ Password updated successfully";
+    statusDiv.textContent = "Password updated successfully";
+    submitBtn.textContent = "Updated";
   } catch (err) {
     statusDiv.textContent = err.message || "Something went wrong";
     submitBtn.disabled = false;
