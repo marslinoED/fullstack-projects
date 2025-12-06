@@ -78,6 +78,9 @@ app.use((req, res, next) => {
   next();
 });
 app.use("/", documentation_route);
+app.get("/reset-password/:token?", (req, res) => {
+  res.sendFile(path.join(__dirname, "template", "resetPassword.html"));
+});
 app.use("/api/v1/tours", tours_route);
 app.use("/api/v1/users", users_route);
 app.use("/api/v1/reviews", reviews_route);

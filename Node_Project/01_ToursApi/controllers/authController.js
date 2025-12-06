@@ -6,8 +6,6 @@ const crypto = require("crypto");
 const upload = require("../utils/multerConfig");
 const uploadToCloudinary = require("../utils/cloudinaryUpload");
 const sharp = require("sharp");
-const { openOrCreateDir, createFile } = require("../utils/fsConfig");
-const app = require("..");
 const EmailService = require("../utils/sendingEmails");
 
 // Functions
