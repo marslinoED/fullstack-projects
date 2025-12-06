@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullstack Projects Explorer</title>
+    <link rel="icon" type="image/png" href="../assets/icons/branch_icon.png">
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Fullstack Projects Explorer</h1>
+        <p>Explore all projects in the <a href="https://github.com/MarslinoEd/fullstack-projects"
+                target="_blank">MarslinoEd/fullstack-projects</a> repository.</p>
+        <ul id="project-list"></ul>
+    </div>
+
+    <script>
+        // Configuration
+        const owner = 'MarslinoEd';
+        const repo = 'fullstack-projects';
+        const folder = 'Node-Projects';
+        const projectList = document.getElementById('project-list');
+        const directories = [
+            {
+                name: '01_ToursApi',
+                description: 'A RESTful API for managing tour data using Node.js, Express, and MongoDB.',
+                url: 'https://marslinoed.github.io/fullstack-projects/Node_Projects/01_ToursApi/'
+            },
+        ];
+        directories.forEach(dir => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="${dir.url}">${dir.name}</a>`;
+            projectList.appendChild(li);
+        });
+    </script>
+</body>
+
+</html>
