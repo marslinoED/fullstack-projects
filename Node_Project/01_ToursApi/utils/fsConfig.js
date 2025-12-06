@@ -1,6 +1,6 @@
 const fs = require("fs/promises");
 const path = require("path");
-const AppError = require("./AppError");
+const AppError = require("./appError");
 
 const openOrCreateDir = async (dirPath) => {
   try {
