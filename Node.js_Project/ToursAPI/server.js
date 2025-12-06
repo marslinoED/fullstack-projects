@@ -3,11 +3,11 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-if (process.env.NODE_ENV === "production") {
-  const dotenv = require("dotenv").config();
-} else if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "development") {
   const dotenv = require("dotenv");
   dotenv.config({ path: "./config.env", quiet: true });
+} else {
+  const dotenv = require("dotenv").config();
 }
 
 const app = require("./index");
