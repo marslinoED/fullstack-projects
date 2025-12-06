@@ -307,7 +307,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     if (req.user.role === "GODMODE") {
-      if (process.env.NODE_ENV === "development") {
+      if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "testing") {
         return next();
       } else {
         req.user.role = "admin";
@@ -330,12 +330,6 @@ exports.checkOwnership = (Model) => {
       return next(new AppError("Document not found", 404));
     }
 
-    // allow admin to bypass
-    // if (req.user.role === "GODMODE") {
-    //   if (process.env.NODE_ENV === "development") {
-    //     return next();
-    //   }
-    // } else
     if (req.user.role === "admin") {
       return next();
     }

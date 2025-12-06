@@ -28,6 +28,9 @@ module.exports = class Email {
   }
 
   async send(subject, message) {
+    if (process.env.NODE_ENV === "testing") {
+      console.log("This was supposed to be a mail:", subject, message);
+    }
     const sendEmail = this.createTransporter();
     try {
       await sendEmail.sendMail({

@@ -5,10 +5,6 @@ process.on("uncaughtException", (err) => {
 
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env", quiet: true });
-// if (process.env.NODE_ENV === "development") {
-// } else {
-//   const dotenv = require("dotenv").config({ quiet: true });
-// }
 
 const app = require("./index");
 const { connectDB } = require("./utils/connectDB");
