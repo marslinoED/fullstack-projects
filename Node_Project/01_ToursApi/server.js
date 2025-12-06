@@ -3,12 +3,12 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-if (process.env.NODE_ENV === "development") {
-  const dotenv = require("dotenv");
-  dotenv.config({ path: "./config.env", quiet: true });
-} else {
-  const dotenv = require("dotenv").config({ quiet: true });
-}
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config.env", quiet: true });
+// if (process.env.NODE_ENV === "development") {
+// } else {
+//   const dotenv = require("dotenv").config({ quiet: true });
+// }
 
 const app = require("./index");
 const { connectDB } = require("./utils/connectDB");
