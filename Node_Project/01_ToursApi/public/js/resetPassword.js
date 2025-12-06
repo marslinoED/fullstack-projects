@@ -4,8 +4,8 @@ const statusDiv = document.getElementById("status");
 
 // token من الـ URL
 const token = window.location.pathname.split("/").pop();
-  console.log(token);
-  
+console.log(token);
+
 submitBtn.addEventListener("click", async () => {
   if (!form.reportValidity()) return;
 
@@ -29,7 +29,8 @@ submitBtn.addEventListener("click", async () => {
 
     if (!res.ok) throw new Error(data.message);
 
-    statusDiv.textContent = "Password updated successfully";
+    statusDiv.textContent =
+      "Password updated successfully\nPlease log in with your new password";
     submitBtn.textContent = "Updated";
   } catch (err) {
     statusDiv.textContent = err.message || "Something went wrong";
