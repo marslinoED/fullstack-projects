@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === "development") {
   const dotenv = require("dotenv");
   dotenv.config({ path: "./config.env", quiet: true });
 } else {
-  const dotenv = require("dotenv").config();
+  const dotenv = require("dotenv").config({ quiet: true });
 }
 
 const app = require("./index");
@@ -17,9 +17,7 @@ const { connectDB } = require("./utils/connectDB");
 connectDB();
 
 const server = app.listen(process.env.PORT || 3000, () => {
-  console.log(
-    `Server is running on http://localhost:${process.env.PORT || 3000}`
-  );
+  console.log(`Server is running on http://localhost:${process.env.PORT}`);
 });
 
 process.on("unhandledRejection", (err) => {
