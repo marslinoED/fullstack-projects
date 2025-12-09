@@ -37,10 +37,12 @@ app.use("/api", limiter);
 // Enable CORS
 app.use(
   cors({
-    origin: "http://localhost:3001",
-    origin: "http://localhost:3000",
-    origin: "https://marslinoed.github.io",
-    
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "https://marslinoed.github.io",
+    ],
+
     credentials: true,
   })
 );
