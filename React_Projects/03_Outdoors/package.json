@@ -1,7 +1,9 @@
 {
-  "name": "natours",
+  "name": "outdoors",
   "version": "0.1.0",
   "private": true,
+  "description": "Outdoors is a fictional tour booking website used for educational purposes in web development courses.",
+  "homepage": "./",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
     "@testing-library/dom": "^10.4.1",
