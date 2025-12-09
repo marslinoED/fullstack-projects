@@ -1,0 +1,87 @@
+.profile-container {
+    padding: 8rem 2rem;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile-card {
+    background-color: #fff;
+    padding: 5rem;
+    border-radius: 5px;
+    box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
+    width: 100%;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.profile-img {
+    height: 12rem;
+    width: 12rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #55c57a;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 3px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #777;
+}
+
+.detail-value {
+    color: #444;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.form-profile {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.heading-tertiary {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: #55c57a;
+}

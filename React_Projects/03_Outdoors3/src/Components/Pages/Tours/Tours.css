@@ -1,0 +1,158 @@
+.tours-page-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+    padding: 3rem 0;
+    gap: 4rem;
+}
+
+.tours-sidebar {
+    flex: 0 0 28rem;
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    margin-left: 2rem;
+    align-self: flex-start;
+}
+
+.tours-main {
+    flex: 1;
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 4rem;
+    margin-bottom: 6rem;
+}
+
+.filter-group {
+    margin-bottom: 4rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+}
+
+.filter-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.filter-group h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #55c57a;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.4rem;
+    font-family: inherit;
+    color: #444;
+    background-color: #f9f9f9;
+    border: none;
+    border-left: 3px solid #55c57a;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-select:focus {
+    outline: none;
+    background-color: #f0f0f0;
+}
+
+.filter-range {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+}
+
+.filter-range:focus {
+    outline: none;
+}
+
+.filter-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background: #55c57a;
+    cursor: pointer;
+    margin-top: -6px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.filter-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: #eee;
+    border-radius: 1px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: auto;
+}
+
+.page-btn {
+    background-color: #fff;
+    color: #55c57a;
+    border: 1px solid #55c57a;
+    padding: 1rem 2rem;
+    border-radius: 10rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.page-btn:hover:not(:disabled) {
+    background-color: #55c57a;
+    color: #fff;
+}
+
+.page-btn:disabled {
+    border-color: #ccc;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.page-number {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #444;
+}
+
+@media (max-width: 900px) {
+    .tours-page-container {
+        flex-direction: column;
+        padding: 2rem;
+        gap: 3rem;
+    }
+
+    .tours-sidebar {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 2rem;
+    }
+
+    .tours-main {
+        margin-right: 0;
+    }
+}
