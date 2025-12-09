@@ -4,19 +4,31 @@ class APIFeatures {
     this.queryString = queryString;
   }
 
-  filter() {
-    // 1) Basic filtering
-    let queryObj = { ...this.queryString };
-    const excludeFields = ["sortBy", "fields", "page", "limit"];
-    excludeFields.forEach((el) => delete queryObj[el]);
+ filter() {
+  const queryObj = { ...this.queryString };
+  const excludeFields = ["sortBy", "fields", "page", "limit"];
+  excludeFields.forEach(el => delete queryObj[el]);
 
-    // 2) Advanced filtering: duration[gte]=12 -> { duration: { $gte: 12 } }
-    let queryStr = JSON.stringify(queryObj);
-    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+  const mongoQuery = {};
 
-    this.query = this.query.find(JSON.parse(queryStr));
-    return this;
+  for (const key in queryObj) {
+    const value = queryObj[key];
+
+    if (typeof value === "object") {
+      mongoQuery[key] = {};
+
+      for (const op in value) {
+        mongoQuery[key][`$${op}`] = Number(value[op]);
+      }
+    } else {
+      mongoQuery[key] = value;
+    }
   }
+
+  this.query = this.query.find(mongoQuery);
+  return this;
+}
+
 
   sort(deafaultSort = " -createdAt") {
     // Sorting
