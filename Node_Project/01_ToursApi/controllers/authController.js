@@ -119,8 +119,8 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
   // 1) Get user based on POSTed email
-  if (!req.body.email || !req.body.resetUrl) {
-    return next(new AppError("Body must have both email and resetUrl", 400));
+  if (!req.body.email) {
+    return next(new AppError("Body must have both email", 400));
   }
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
@@ -131,7 +131,9 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
   // 3) Send it to user's email
   const email = req.body.email;
-  const resetURL = `${req.body.resetUrl}/${resetToken}`;
+  const resetURL =
+    `${req.body.resetUrl}/${resetToken}` ||
+    "https://tours-app-api-drab.vercel.app/reset-password-template";
   try {
     const emailClient = new EmailService(user);
     await emailClient.sendPasswordReset(resetURL);
@@ -307,7 +309,10 @@ exports.protect = catchAsync(async (req, res, next) => {
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     if (req.user.role === "GODMODE") {
-      if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "testing") {
+      if (
+        process.env.NODE_ENV === "development" ||
+        process.env.NODE_ENV === "testing"
+      ) {
         return next();
       } else {
         req.user.role = "admin";
