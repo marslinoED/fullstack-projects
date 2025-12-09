@@ -16,7 +16,7 @@ export default function Navbar() {
                 {user ? (
                     <Link to="/profile" className="nav__user">
                         <img
-                            src={user.photo.startsWith('http') ? user.photo : `https://tours-app-api-drab.vercel.app/img/users/${user.photo}`}
+                            src={user.photo}
                             alt={`Photo of ${user.name}`}
                             className="nav__user-img"
                         />
