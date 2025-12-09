@@ -15,7 +15,7 @@ module.exports = class Email {
           pass: process.env.sendGridApiKey,
         },
       });
-    }
+    } 
     return nodemailer.createTransport({
       host: process.env.emailHost,
       port: process.env.emailPort,
@@ -30,6 +30,7 @@ module.exports = class Email {
   async send(subject, message) {
     if (process.env.NODE_ENV === "testing") {
       console.log("This was supposed to be a mail:", subject, message);
+      return;
     }
     const sendEmail = this.createTransporter();
     try {
