@@ -55,7 +55,8 @@ const tourSchema = new mongoose.Schema(
     },
     imageCover: {
       type: String,
-      required: [true, "A tour must have a cover image"],
+      default:
+        "https://res.cloudinary.com/mycloundinaryenv/image/upload/v1765270530/default-tour_doglcy.jpg",
     },
     images: [String],
     startDates: [Date],
@@ -77,12 +78,12 @@ const tourSchema = new mongoose.Schema(
           day: Number,
         },
       ],
-      // validate: {
-      //   validator: function (val) {
-      //     return val.length >= 1; // Must have at least one location
-      //   },
-      //   message: "A tour must have at least one location",
-      // },
+      validate: {
+        validator: function (val) {
+          return val.length >= 1; // Must have at least one location
+        },
+        message: "A tour must have at least one location",
+      },
     },
     startLocation: {
       type: {

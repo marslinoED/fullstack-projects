@@ -167,7 +167,7 @@ exports.getAllTours = factory.getAll(Tour, ["-description", "-images"]);
 // Get a specific tour by ID
 exports.getTourById = factory.getOneById(Tour, {
   path: "guides reviews",
-  select: "_id name email role createdAt updatedAt review rating userRef",
+  select: "_id name email role createdAt updatedAt review rating userRef, photo",
 });
 
 // Create a new tour
@@ -230,7 +230,7 @@ exports.addTourImage = catchAsync(async (req, res, next) => {
     const uploadedCover = await uploadToCloudinary(
       req.processedBufferImageCover,
       {
-        folder: `ToursApp/tours/${currentTourId}`,
+        folder: `ToursApp/Tours/${currentTourId}`,
         public_id: `tour_${currentTourId}_cover_${Date.now()}`,
       }
     );
@@ -241,7 +241,7 @@ exports.addTourImage = catchAsync(async (req, res, next) => {
     imageUpdates.images = [];
     for (const image of req.processedBufferImages) {
       const uploadedImage = await uploadToCloudinary(image, {
-        folder: `ToursApp/tours/${currentTourId}`,
+        folder: `ToursApp/Tours/${currentTourId}`,
         public_id: `tour_${currentTourId}_image_${Date.now()}`,
       });
       imageUpdates.images.push(uploadedImage.secure_url);

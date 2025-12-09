@@ -8,6 +8,8 @@ module.exports = function uploadToCloudinary(buffer, options = {}) {
         folder: options.folder || "default-folder",
         public_id: options.public_id || `image_${Date.now()}`,
         format: options.format || "jpeg",
+        overwrite: true,
+        unique_filename: false,
       },
       (error, result) => {
         if (error) reject(error);
