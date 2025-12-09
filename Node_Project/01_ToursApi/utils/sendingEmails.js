@@ -30,7 +30,7 @@ module.exports = class Email {
   async send(subject, message) {
     if (process.env.NODE_ENV === "testing") {
       console.log("This was supposed to be a mail:", subject, message);
-      return;
+      throw new Error("Email sending disabled in testing mode");
     }
     const sendEmail = this.createTransporter();
     try {
