@@ -45,13 +45,15 @@ exports.getOneById = (Model, popOptions) =>
 
 exports.createOne = (Model) =>
   catchAsync(async (req, res, next) => {
+    
     if (!req.body) {
       return next(new AppError("No data provided", 400));
     }
     if (req.body.role) {
       req.body.role = "user";
     }
-
+    
+    console.log(req.body);
     const newModel = await Model.create(req.body);
     if (Model.modelName === "Tour") {
       req.params.id = newModel._id;
