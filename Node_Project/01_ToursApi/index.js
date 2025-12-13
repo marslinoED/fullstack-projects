@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const tours_route = require("./routes/toursRoute");
 const users_route = require("./routes/usersRoute");
 const reviews_route = require("./routes/reviewsRoute");
+const paymob_route = require("./routes/paymobRoute");
 const documentation_route = require("./routes/documentationRoute");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
@@ -95,6 +96,7 @@ app.get("/reset-password-template/:token?", (req, res) => {
 app.use("/api/v1/tours", tours_route);
 app.use("/api/v1/users", users_route);
 app.use("/api/v1/reviews", reviews_route);
+app.use("/api/v1/paymob", paymob_route);
 
 // Handle unhandled routes
 app.all("*", (req, res, next) => {
