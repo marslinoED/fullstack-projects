@@ -17,7 +17,7 @@ const compression = require("compression");
 
 const app = express();
 // Trust proxy for secure cookies behind proxies
-// app.set("trust proxy", 1);
+app.set("trust proxy", 1);
 
 // 1) Middlewares:
 // Set Security HTTP headers
