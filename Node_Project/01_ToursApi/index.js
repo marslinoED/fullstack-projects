@@ -19,9 +19,13 @@ const app = express();
 // Trust proxy for secure cookies behind proxies
 app.set("trust proxy", 1);
 
+// Set query parser to 'extended' to support nested objects
+app.set("query parser", "extended");
+
 // 1) Middlewares:
 // Set Security HTTP headers
 app.use(helmet());
+
 
 // Compress all responses
 app.use(compression());
