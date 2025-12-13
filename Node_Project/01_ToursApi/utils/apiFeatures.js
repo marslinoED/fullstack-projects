@@ -38,7 +38,6 @@ class APIFeatures {
     }
 
     this.query = this.query.find(mongoQuery);
-    console.log("Filtered Query:", JSON.stringify(mongoQuery, null, 2));
     return this;
   }
 
