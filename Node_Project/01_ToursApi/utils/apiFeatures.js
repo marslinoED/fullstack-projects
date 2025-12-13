@@ -4,31 +4,31 @@ class APIFeatures {
     this.queryString = queryString;
   }
 
- filter() {
-  const queryObj = { ...this.queryString };
-  const excludeFields = ["sortBy", "fields", "page", "limit"];
-  excludeFields.forEach(el => delete queryObj[el]);
+  filter() {
+    const queryObj = { ...this.queryString };
+    const excludeFields = ["sortBy", "fields", "page", "limit"];
+    excludeFields.forEach((el) => delete queryObj[el]);
 
-  const mongoQuery = {};
+    const mongoQuery = {};
 
-  for (const key in queryObj) {
-    const value = queryObj[key];
+    for (const key in queryObj) {
+      const value = queryObj[key];
 
-    if (typeof value === "object") {
-      mongoQuery[key] = {};
+      if (typeof value === "object") {
+        mongoQuery[key] = {};
 
-      for (const op in value) {
-        mongoQuery[key][`$${op}`] = Number(value[op]);
+        for (const op in value) {
+          mongoQuery[key][`$${op}`] = Number(value[op]);
+        }
+      } else {
+        mongoQuery[key] = value;
       }
-    } else {
-      mongoQuery[key] = value;
     }
+
+    this.query = this.query.find(mongoQuery);
+    console.log("Filtered Query:", JSON.stringify(mongoQuery, null, 2));
+    return this;
   }
-
-  this.query = this.query.find(mongoQuery);
-  return this;
-}
-
 
   sort(deafaultSort = " -createdAt") {
     // Sorting
