@@ -14,13 +14,25 @@ class APIFeatures {
     for (const key in queryObj) {
       const value = queryObj[key];
 
+      // case 1: parsed object (local)
       if (typeof value === "object") {
         mongoQuery[key] = {};
-
         for (const op in value) {
           mongoQuery[key][`$${op}`] = Number(value[op]);
         }
-      } else {
+      }
+
+      // case 2: flat key from Vercel => duration[gte]
+      else if (key.includes("[")) {
+        const [field, op] = key.replace("]", "").split("[");
+        mongoQuery[field] = {
+          ...(mongoQuery[field] || {}),
+          [`$${op}`]: Number(value),
+        };
+      }
+
+      // case 3: normal filter
+      else {
         mongoQuery[key] = value;
       }
     }
