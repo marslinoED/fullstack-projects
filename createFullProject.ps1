@@ -278,7 +278,7 @@ npm run build
 # Remove production build lines from .gitignore
 Write-Host "Removing production build lines from .gitignore..."
 $gitignore = Get-Content ".gitignore" -Raw
-$gitignore = $gitignore -replace "# production\r?\n", "" -replace "/build\r?\n", ""
+$gitignore = $gitignore -replace "# production\r?\n", "" -replace "/build\r?\n\n", ""
 $gitignore = $gitignore.Trim() | Set-Content ".gitignore"
 
 
