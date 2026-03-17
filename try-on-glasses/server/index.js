@@ -28,6 +28,7 @@ app.use(morgan("dev"));
 
 app.use("/api/v1/temp", tempRoute);
 
+
 const clientBuildPath = path.join(__dirname, "../client/build");
 app.use(express.static(clientBuildPath));
 app.get("/", (req, res) => {
