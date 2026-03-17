@@ -33,6 +33,15 @@ $rootPkg.scripts | Add-Member -NotePropertyName "server" -NotePropertyValue "npm
 $rootPkg.scripts | Add-Member -NotePropertyName "client" -NotePropertyValue "npm start --prefix client" -Force
 $rootPkg.scripts | Add-Member -NotePropertyName "dev" -NotePropertyValue 'concurrently "npm run server" "npm run client"' -Force
 $rootPkg | ConvertTo-Json -Depth 20 | Set-Content package.json
+
+# --- .gitignore ---
+@'
+# dependencies
+/node_modules
+/server/node_modules
+/client/node_modules
+'@ | Set-Content ".gitignore"
+
 # 3) Setup Server (Node.js)
 Write-Host "Setting up Server folder..."
 New-Item -ItemType Directory -Path "server" | Out-Null
