@@ -275,6 +275,13 @@ export default function $name() {
 Write-Host "Running initial client build..."
 npm run build
 
+# Remove production build lines from .gitignore
+Write-Host "Removing production build lines from .gitignore..."
+$gitignore = Get-Content ".gitignore" -Raw
+$gitignore = $gitignore -replace "# production\r?\n", "" -replace "/build\r?\n", ""
+$gitignore = $gitignore.Trim() | Set-Content ".gitignore"
+
+
 # Final Output
 Set-Location ..
 Write-Host "---"
