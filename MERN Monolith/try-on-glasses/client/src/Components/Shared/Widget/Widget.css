@@ -1,0 +1,103 @@
+.Widget-Content {
+  width: min(960px, 95vw);
+  margin: 1rem auto 2rem;
+  padding: 1rem;
+  border-radius: 14px;
+  background: #f7f9fc;
+  border: 1px solid #dbe3ec;
+}
+
+.Widget-Content h2 {
+  margin: 0 0 1rem;
+}
+
+.Widget-controls {
+  display: grid;
+  gap: 0.65rem;
+  text-align: left;
+  margin-bottom: 0.75rem;
+}
+
+.Widget-controls label {
+  font-weight: 600;
+  color: #1f2a37;
+}
+
+.Widget-controls input {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 8px;
+  border: 1px solid #c4d0df;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.96rem;
+}
+
+.Widget-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.Widget-actions button {
+  min-height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: #0a66c2;
+  color: #ffffff;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.Widget-actions button:disabled {
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+.Widget-status {
+  margin: 0 0 0.75rem;
+  text-align: left;
+  color: #334155;
+}
+
+.Widget-stage {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #c9d6e6;
+  background: #0b1220;
+}
+
+.Widget-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scaleX(-1);
+}
+
+.Widget-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
+.Widget-overlayCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .Widget-Content {
+    width: calc(100vw - 1.2rem);
+    padding: 0.75rem;
+  }
+
+  .Widget-actions button {
+    flex: 1 1 100%;
+  }
+}
