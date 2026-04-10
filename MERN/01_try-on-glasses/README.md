@@ -5,6 +5,6 @@ my junior fullstack projects
 A MERN stack project that allows users to virtually try on glasses using their webcam.
 
 ### Try Out
-<a href="https://try-on-glasses-ea16vnl5q-marslinoeds-projects.vercel.app/" target="_blank">
+<a href="https://try-on-glasses-navy.vercel.app/" target="_blank">
   <img src="../../assets/icons/try-it-out.svg" alt="Try it live"> 
 </a>
