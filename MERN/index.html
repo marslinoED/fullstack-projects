@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullstack Projects Explorer</title>
+    <link rel="icon" type="image/png" href="../assets/icons/branch_icon.png">
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Fullstack Projects Explorer</h1>
+        <p>Explore all projects in the <a href="https://github.com/MarslinoEd/fullstack-projects"
+                target="_blank">MarslinoEd/fullstack-projects</a> repository.</p>
+        <ul id="project-list"></ul>
+    </div>
+
+    <script>
+        // Configuration
+        const owner = 'MarslinoEd';
+        const repo = 'fullstack-projects';
+        const folder = 'MERN';
+        const projectList = document.getElementById('project-list');
+        const directories = [
+            {
+                name: '01_try-on-glasses',
+                description: 'A MERN stack project that allows users to virtually try on glasses using their webcam.',
+                url: 'https://try-on-glasses-ea16vnl5q-marslinoeds-projects.vercel.app/'
+            },
+        ];
+        directories.forEach(dir => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="${dir.url}">${dir.name}</a>`;
+            projectList.appendChild(li);
+        });
+    </script>
+</body>
+
+</html>
