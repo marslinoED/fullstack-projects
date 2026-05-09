@@ -49,6 +49,9 @@ const productSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   },
 );
+
+productSchema.index({ name: 1, storeId: 1 }, { unique: true });
+
 const product = mongoose.model("product", productSchema);
 
 module.exports = product;

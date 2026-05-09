@@ -224,6 +224,96 @@ exports.deleteProduct = catchAsync(async (req, res, next) => {
   });
 });
 
+// exports.generateProductModel = catchAsync(async (req, res, next) => {
+//   if (!req.file || !req.body.productId) {
+//     return next(new AppError("Image and Product ID are required.", 400));
+//   }
+
+//   const product = await Product.findById(req.body.productId).populate(
+//     "storeId",
+//   );
+//   if (!product) return next(new AppError("Product not found", 404));
+
+//   // 1. Convert image buffer to base64
+//   const base64Image = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`;
+
+//   // 2. Start prediction on Replicate
+//   const startRes = await axios.post(
+//     "https://api.replicate.com/v1/models/tencent/hunyuan3d-2/predictions",
+//     {
+//       input: {
+//         image: base64Image,
+//         steps: 30,
+//         guidance_scale: 2.0,
+//         octree_resolution: 256,
+//         remove_background: true,
+//       },
+//     },
+//     {
+//       headers: {
+//         Authorization: `Bearer ${process.env.REPLICATE_API_TOKEN}`,
+//         "Content-Type": "application/json",
+//         Prefer: "wait", // wait up to 60s for result inline
+//       },
+//     },
+//   );
+
+//   // 3. Poll if not done yet
+//   let prediction = startRes.data;
+//   while (prediction.status !== "succeeded" && prediction.status !== "failed") {
+//     await new Promise((r) => setTimeout(r, 3000));
+//     const pollRes = await axios.get(
+//       `https://api.replicate.com/v1/predictions/${prediction.id}`,
+//       {
+//         headers: { Authorization: `Bearer ${process.env.REPLICATE_API_TOKEN}` },
+//       },
+//     );
+//     prediction = pollRes.data;
+//   }
+
+//   if (prediction.status === "failed") {
+//     return next(
+//       new AppError(`Replicate generation failed: ${prediction.error}`, 500),
+//     );
+//   }
+
+//   const glbUrl = prediction.output; // direct URL to the .glb file
+
+//   // 4. Download and upload to Cloudinary
+//   const response = await axios.get(glbUrl, {
+//     responseType: "arraybuffer",
+//     timeout: 60_000,
+//   });
+
+//   const buffer = Buffer.from(response.data);
+//   const storeId = product.storeId._id ?? product.storeId;
+//   const folder = `try-on-glasses/stores/${storeId}/products/${product._id}`;
+
+//   const cloudStorage = await new Promise((resolve, reject) => {
+//     const uploadStream = cloudinary.uploader.upload_stream(
+//       {
+//         folder,
+//         public_id: `${product._id}_Model`,
+//         resource_type: "raw",
+//         format: "glb",
+//         overwrite: true,
+//       },
+//       (error, result) => (error ? reject(error) : resolve(result)),
+//     );
+//     uploadStream.end(buffer);
+//   });
+
+//   await Product.findByIdAndUpdate(
+//     product._id,
+//     { $set: { "assets.modelUrl": cloudStorage.secure_url } },
+//     { new: true },
+//   );
+
+//   res
+//     .status(200)
+//     .json({ status: "success", data: { modelUrl: cloudStorage.secure_url } });
+// });
+
 exports.generateProductModel = catchAsync(async (req, res, next) => {
   if (!req.file || !req.body.productId) {
     return next(new AppError("Image and Product ID are required.", 400));
@@ -235,9 +325,17 @@ exports.generateProductModel = catchAsync(async (req, res, next) => {
   if (!product) return next(new AppError("Product not found", 404));
 
   const { Client } = await import("@gradio/client");
-  const client = await Client.connect("tencent/Hunyuan3D-2", {
-    hf_token: process.env.HF_TOKEN?.trim(),
-  });
+
+  // Use the full HTTPS URL - it's more stable for the metadata loader
+  const client = await Client.connect(
+    "Jbowyer/Hunyuan3D-2.1",
+    {
+      hf_token: process.env.HF_TOKEN?.trim(),
+      // This will log the space status (building, sleeping, running) to your console
+      status_callback: (status) =>
+        console.log(`Space Status: ${status.status}`),
+    },
+  );
 
   const imageBlob = new Blob([req.file.buffer], { type: req.file.mimetype });
 

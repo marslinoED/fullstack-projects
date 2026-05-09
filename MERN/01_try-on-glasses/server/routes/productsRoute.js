@@ -47,8 +47,8 @@ router
   .post(
     protect,
 
-    restrictTo("merchant", "admin"),
     uploadProductAssets,
+    restrictTo("merchant", "admin"),
     createProduct,
   )
   .patch(
