@@ -1,0 +1,259 @@
+.layout-shell {
+  min-height: 100vh;
+}
+
+.home-page,
+.chat-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.home-card,
+.chat-shell {
+  width: min(920px, 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 28px;
+  background: rgba(11, 18, 33, 0.8);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+}
+
+.home-card {
+  padding: 40px;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.home-panel {
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-panel--join {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.panel-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 0.84rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8fa0b8;
+}
+
+.chat-shell {
+  overflow: hidden;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8cd8ff;
+  font-size: 0.78rem;
+}
+
+.home-card h1,
+.chat-header h1 {
+  margin: 0;
+  color: #f7fbff;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.home-copy {
+  max-width: 560px;
+  color: #b7c4d6;
+  line-height: 1.6;
+  margin: 18px 0 30px;
+}
+
+.room-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 24px;
+}
+
+.room-preview span,
+.room-badge,
+.message-author {
+  color: #8fa0b8;
+}
+
+.room-preview strong {
+  letter-spacing: 0.32em;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.primary-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  background: linear-gradient(135deg, #4cc2ff, #7b7dff);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.room-badge {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.chat-panel {
+  padding: 24px;
+}
+
+.message-list {
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f8ff;
+}
+
+.message--mine {
+  margin-left: auto;
+  background: linear-gradient(135deg, rgba(76, 194, 255, 0.24), rgba(123, 125, 255, 0.28));
+}
+
+.message--system {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.message-author {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.message p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.message-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+.message-form input {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  outline: none;
+}
+
+.message-form input::placeholder {
+  color: #8793a7;
+}
+
+.message-timestamp,
+.message-latency {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: #7a8fa0;
+  margin-top: 6px;
+  margin-right: 12px;
+  opacity: 0.8;
+}
+
+.message-latency {
+  font-weight: 600;
+  color: #4cc2ff;
+}
+
+.join-form {
+  display: grid;
+  gap: 12px;
+}
+
+.join-form input {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.join-form input::placeholder {
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+@media (max-width: 640px) {
+  .home-card,
+  .chat-shell {
+    border-radius: 22px;
+  }
+
+  .home-card {
+    padding: 24px;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-header,
+  .chat-panel {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .chat-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .message,
+  .message--mine {
+    max-width: 100%;
+  }
+
+  .message-form {
+    grid-template-columns: 1fr;
+  }
+}
