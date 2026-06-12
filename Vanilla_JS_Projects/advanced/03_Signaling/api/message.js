@@ -9,15 +9,24 @@ const pusher = new Pusher({
   useTLS: true,
 });
 
-export default async function handler(req, res) {
+// الاعتماد على module.exports بدلاً من export default لتجنب خلط الأنظمة
+module.exports = async (req, res) => {
   if (req.method === "POST") {
-    const { text } = req.body;
+    // التأكد من عمل Parse للـ body إذا قادم كـ String أو Object
+    const { text } = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
 
-    // بث الرسالة إلى قناة اسمها "chat-room" تحت حدث اسمه "new-message"
-    await pusher.trigger("chat-room", "new-message", { message: text });
+    if (!text) {
+      return res.status(400).json({ error: "Text is required" });
+    }
 
-    return res.status(200).json({ success: true });
+    try {
+      // بث الرسالة إلى Pusher
+      await pusher.trigger("chat-room", "new-message", { message: text });
+      return res.status(200).json({ success: true });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
   }
 
   res.status(405).send("Method Not Allowed");
-}
+};
