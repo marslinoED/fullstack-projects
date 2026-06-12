@@ -22,9 +22,16 @@ exports.sendSignal = catchAsync(async (req, res, next) => {
     }
 
     // بث إشارة الـ WebRTC داخل نفس الـ roomCode بحدث منفصل اسمه webrtc-signal
-    await pusher.trigger(`chat-room-${roomCode}`, "webrtc-signal", {
-      signal: signalData,
-    });
+    await pusher.trigger(
+      `chat-room-${roomCode}`,
+      "webrtc-signal",
+      {
+        signal: signalData, // تأكد من أن الـ signalData يحتوي على senderId لتجنب استقبال الإشارات التي أرسلها المستخدم نفسه
+      },
+      {
+        socket_id: req.body.socketId,
+      },
+    );
 
     return res.status(200).json({ success: true });
   }
