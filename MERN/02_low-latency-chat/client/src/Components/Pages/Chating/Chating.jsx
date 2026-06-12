@@ -12,13 +12,9 @@ export default function Chating() {
   const [messages, setMessages] = useState([
     { id: 1, author: 'System', text: 'Temporary chat is ready.', timestamp: new Date().toISOString(), timeTaken: 0 },
   ]);
-  
-  // الحالات الجديدة الخاصة بالمكالمة الصوتية والـ Notification
-  const [inCall, setInCall] = useState(false);
-  const [incomingCall, setIncomingCall] = useState(null); // لتخزين الـ Offer المستلم
-  const [showModal, setShowModal] = useState(false);     // لإظهار نافذة الاتصال الوارد
 
-  // استخدام useRef للحفاظ على استقرار الـ Streams والاتصال عبر الـ Renders
+  // حالات المكالمة الصوتية
+  const [inCall, setInCall] = useState(false);
   const localStreamRef = useRef(null);
   const peerConnectionRef = useRef(null);
   const remoteAudioRef = useRef(null);
@@ -37,7 +33,7 @@ export default function Chating() {
 
     const channel = pusher.subscribe(`chat-room-${roomCode}`);
 
-    // --- 1. الاستماع لرسائل الشات العادية ---
+    // --- أولاً: الاستماع لرسائل الشات العادية ---
     channel.bind('new-message', function (data) {
       const receivedTime = Date.now();
       const sentTime = new Date(data.timestamp).getTime();
@@ -55,24 +51,19 @@ export default function Chating() {
       ]);
     });
 
-    // --- 2. الاستماع لإشارات الـ WebRTC (الصوت) ---
+    // --- ثانياً: الاستماع لإشارات المكالمة الصوتية (WebRTC) ---
     channel.bind('webrtc-signal', async (data) => {
       const { signal } = data;
-      
-      // نتخطى الإشارات المرسلة منا لتجنب الحلقة اللانهائية (Loop)
+
+      // نتخطى الإشارات التي قمنا نحن بإرسالها
       if (signal.senderId === userId) return;
 
       if (signal.type === 'offer') {
-        // بدلاً من الفتح التلقائي، نخزن الـ Offer ونفتح الـ Modal للمستقبل
-        setIncomingCall(signal);
-        setShowModal(true);
+        await handleOffer(signal);
       } else if (signal.type === 'answer') {
         await peerConnectionRef.current.setRemoteDescription(new RTCSessionDescription(signal));
       } else if (signal.candidate) {
-        // لا نضيف الـ Candidates إلا لو كان الـ Connection تم إنشاؤه فعلياً
-        if (peerConnectionRef.current) {
-          await peerConnectionRef.current.addIceCandidate(new RTCIceCandidate(signal));
-        }
+        await peerConnectionRef.current.addIceCandidate(new RTCIceCandidate(signal));
       }
     });
 
@@ -83,26 +74,26 @@ export default function Chating() {
     };
   }, [roomCode, pusherKey, pusherCluster, userId]);
 
-  // --- دوال وإعدادات الـ WebRTC ---
+  // --- دوال الـ WebRTC للمكالمة الصوتية ---
 
   const setupPeerConnection = () => {
     peerConnectionRef.current = new RTCPeerConnection({
-      iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] // سيرفر مجاني لجلب الـ IP
+      iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
     });
 
-    // تمرير مسار المايك المحلي داخل أنبوب الاتصال
+    // تمرير المايك المحلي داخل الاتصال
     localStreamRef.current.getTracks().forEach(track => {
       peerConnectionRef.current.addTrack(track, localStreamRef.current);
     });
 
-    // تبادل الـ ICE Candidates فور توليدها من المتصفح
+    // تبادل الـ ICE Candidates تلقائياً عبر السيرفر وبوشر
     peerConnectionRef.current.onicecandidate = (event) => {
       if (event.candidate) {
         sendSignalToBackend({ ...event.candidate.toJSON(), senderId: userId });
       }
     };
 
-    // تشغيل صوت الطرف الآخر فور التقاط الـ Track
+    // تشغيل صوت الطرف الآخر فور استقبال الـ Track
     peerConnectionRef.current.ontrack = (event) => {
       if (remoteAudioRef.current) {
         remoteAudioRef.current.srcObject = event.streams[0];
@@ -110,71 +101,55 @@ export default function Chating() {
     };
   };
 
-  // عندما يضغط المستخدم الأول على زر "Call"
   const startAudioCall = async () => {
     setInCall(true);
+    // الحصول على صلاحية المايك
     localStreamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-    
+
     setupPeerConnection();
 
     const offer = await peerConnectionRef.current.createOffer();
     await peerConnectionRef.current.setLocalDescription(offer);
-    
+
     sendSignalToBackend({ type: offer.type, sdp: offer.sdp, senderId: userId });
   };
 
-  // عندما يضغط الطرف الثاني على زر "قبول" من الـ Notification
-  const acceptCall = async () => {
-    setShowModal(false);
+  const handleOffer = async (offer) => {
     setInCall(true);
+    if (!peerConnectionRef.current) {
+      localStreamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+      setupPeerConnection();
+    }
 
-    // فتح المايك للطرف المستقبل بعد الموافقة
-    localStreamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-    
-    setupPeerConnection();
-
-    // معالجة الـ Offer المخزن وصناعة الـ Answer
-    await peerConnectionRef.current.setRemoteDescription(new RTCSessionDescription(incomingCall));
+    await peerConnectionRef.current.setRemoteDescription(new RTCSessionDescription(offer));
     const answer = await peerConnectionRef.current.createAnswer();
     await peerConnectionRef.current.setLocalDescription(answer);
-    
-    // إرسال الـ Answer للطرف الأول
+
     sendSignalToBackend({ type: answer.type, sdp: answer.sdp, senderId: userId });
   };
 
-  // عندما يضغط الطرف الثاني على زر "رفض"
-  const rejectCall = () => {
-    setShowModal(false);
-    setIncomingCall(null);
-  };
-
-  // دالة تمرير الإشارات للباك إند ومنها لبوشر
   const sendSignalToBackend = async (signalData) => {
-    await fetch('/api/v1/signals', { // تأكد من إنشاء هذا الـ Route في Express
+    await fetch('/api/v1/signal', { // تأكد من مطابقة هذا الـ Route بالباك إند
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ roomCode, signalData })
     });
   };
 
-  // إنهاء المكالمة وإغلاق المايك تماماً
   const hangUp = () => {
     if (peerConnectionRef.current) peerConnectionRef.current.close();
     if (localStreamRef.current) {
       localStreamRef.current.getTracks().forEach(track => track.stop());
     }
     setInCall(false);
-    window.location.reload(); // لإعادة تصفير الـ States
+    window.location.reload();
   };
 
-  // دالة إرسال رسائل الشات القديمة كما هي
+  // --- دالة إرسال الشات القديمة كما هي ---
   const sendMessage = (event) => {
     event.preventDefault();
-
     const trimmedMessage = message.trim();
-    if (!trimmedMessage) {
-      return;
-    }
+    if (!trimmedMessage) return;
 
     fetch('/api/v1/messages', {
       method: 'POST',
@@ -207,7 +182,7 @@ export default function Chating() {
           </div>
         </header>
 
-        {/* عنصر الـ Audio لاستقبال وتشغيل صوت الطرف الآخر (مخفي) */}
+        {/* عنصر الـ Audio لاستقبال صوت الطرف الآخر (مخفي) */}
         <audio ref={remoteAudioRef} autoPlay />
 
         <section className='chat-panel'>
@@ -238,36 +213,6 @@ export default function Chating() {
           </form>
         </section>
       </div>
-
-      {/* نافذة الاتصال الوارد (Pop-up Notification Modal) */}
-      {showModal && (
-        <div style={modalOverlayStyle}>
-          <div style={modalBoxStyle}>
-            <h3 style={{ margin: '0 0 10px 0' }}>اتصال صوتي وارد... 📞</h3>
-            <p style={{ color: '#666', fontSize: '14px' }}>هناك مستخدم يحاول الاتصال بك في هذه الغرفة.</p>
-            <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '20px' }}>
-              <button onClick={acceptCall} style={{ ...btnStyle, backgroundColor: '#28a745' }}>
-                قبول ✅
-              </button>
-              <button onClick={rejectCall} style={{ ...btnStyle, backgroundColor: '#dc3545' }}>
-                رفض ❌
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
-
-// تنسيقات الـ Modal المضمنة (سريعة للاختبار)
-const modalOverlayStyle = {
-  position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-  backgroundColor: 'rgba(0,0,0,0.6)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000
-};
-const modalBoxStyle = {
-  backgroundColor: '#fff', padding: '25px 40px', borderRadius: '8px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.3)', fontFamily: 'sans-serif'
-};
-const btnStyle = {
-  padding: '8px 20px', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '15px', fontWeight: 'bold'
-};
