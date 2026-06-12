@@ -1,0 +1,21 @@
+{
+  "name": "low-latency-chat",
+  "version": "1.0.0",
+  "description": "A MERN stack real-time chat application with low latency communication using WebSockets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm run dev --prefix server",
+    "client": "npm start --prefix client",
+    "build": "npm run build --prefix client",
+    "i": "npm i && npm i --prefix server && npm i --prefix client",
+    "clear": "rmdir /s /q node_modules && rmdir /s /q server\\\\node_modules && rmdir /s /q client\\\\node_modules",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "Marslino edward",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
