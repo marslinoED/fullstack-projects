@@ -3,6 +3,7 @@ const globalErrorHandler = require("./controllers/errorController");
 const AppError = require("./utils/AppError");
 const app = express();
 const messageRoute = require("./routes/messageRoute");
+const signalRoute = require("./routes/signalRoute");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const cors = require("cors");
@@ -58,6 +59,7 @@ app.use(morgan("dev"));
 
 // Routes
 app.use("/api/v1/messages", messageRoute);
+app.use("/api/v1/signal", signalRoute);
 
 const clientBuildPath = path.join(__dirname, "../client/build");
 app.use(

@@ -1,10 +1,10 @@
 const express = require("express");
 const {
-  sendMessage,
-} = require("../controllers/messageController");
+  sendSignal,
+} = require("../controllers/signalController");
 const router = express.Router({ mergeParams: true });
 
-router.route("/").post(sendMessage);
+router.route("/").post(sendSignal);
 
 
 module.exports = router;

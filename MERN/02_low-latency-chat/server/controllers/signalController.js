@@ -11,28 +11,19 @@ const pusher = new Pusher({
   useTLS: true,
 });
 
-exports.sendMessage = catchAsync(async (req, res, next) => {
+// إضافة هذا الـ Method بجانب sendMessage في ملف الـ Controllers الخاص بك
+exports.sendSignal = catchAsync(async (req, res, next) => {
   if (req.method === "POST") {
-
-    const { text, roomCode, userId } =
+    const { signalData, roomCode } =
       typeof req.body === "string" ? JSON.parse(req.body) : req.body;
 
-    if (!text) {
-      return next(new AppError("Message text is required", 400));
+    if (!signalData || !roomCode) {
+      return next(new AppError("Missing roomCode or signalData", 400));
     }
 
-    if (!roomCode) {
-      return next(new AppError("Room code is required", 400));
-    }
-
-    if (!userId) {
-      return next(new AppError("User ID is required", 400));
-    }
-
-    await pusher.trigger(`chat-room-${roomCode}`, "new-message", {
-      message: text,
-      author: userId,
-      timestamp: new Date().toISOString(),
+    // بث إشارة الـ WebRTC داخل نفس الـ roomCode بحدث منفصل اسمه webrtc-signal
+    await pusher.trigger(`chat-room-${roomCode}`, "webrtc-signal", {
+      signal: signalData,
     });
 
     return res.status(200).json({ success: true });
@@ -40,5 +31,3 @@ exports.sendMessage = catchAsync(async (req, res, next) => {
 
   return next(new AppError("Invalid request method", 405));
 });
-
-
