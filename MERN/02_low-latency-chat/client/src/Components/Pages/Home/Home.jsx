@@ -34,7 +34,6 @@ export default function Home() {
   return (
     <div className='home-page'>
       <div className='home-card'>
-        <p className='eyebrow'>Low latency calls</p>
         <h1>Start or join a temporary chat room</h1>
         <p className='home-copy'>Generate a fresh 6-letter room code or join an existing room by entering its code.</p>
         <div className='home-grid'>
