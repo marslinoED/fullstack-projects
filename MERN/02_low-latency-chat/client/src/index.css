@@ -1,25 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 body {
   margin: 0;
-  font-family: Inter, 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Share Tech Mono', Monaco, Consolas, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #f7fbff;
-  background:
-    radial-gradient(circle at top left, rgba(76, 194, 255, 0.22), transparent 35%),
-    radial-gradient(circle at top right, rgba(123, 125, 255, 0.18), transparent 32%),
-    linear-gradient(180deg, #07111f 0%, #0b1424 100%);
+  color: #00ff66; /* Classic terminal green */
+  background-color: #0a0f12;
+  /* Scanline effect simulation */
+  background-image: linear-gradient(rgba(18, 24, 27, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 4px, 6px 100%;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Share Tech Mono', monospace;
 }
 
 * {
   box-sizing: border-box;
+  text-shadow: 0 0 4px rgba(0, 255, 102, 0.5); /* Global text glow */
 }
 
 button,
 input {
   font: inherit;
+}
+
+/* Subtle CRT flickering */
+@keyframes crt-flicker {
+  0% { opacity: 0.98; }
+  50% { opacity: 1; }
+  100% { opacity: 0.99; }
+}
+
+body::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 99999;
+  pointer-events: none;
+  background-size: 100% 2px, 3px 100%;
+  animation: crt-flicker 0.15s infinite;
 }
