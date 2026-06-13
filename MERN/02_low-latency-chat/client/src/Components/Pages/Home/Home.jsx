@@ -34,7 +34,9 @@ export default function Home() {
   return (
     <div className='home-page'>
       <div className='home-card'>
-        <h1>Start or join a temporary chat room</h1>
+        <div>
+          <h1>Start or join a temporary chat room</h1>
+        </div>
         <p className='home-copy'>Generate a fresh 6-letter room code or join an existing room by entering its code.</p>
         <div className='home-grid'>
           <section className='home-panel'>
