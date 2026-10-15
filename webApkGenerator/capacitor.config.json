@@ -1,0 +1,14 @@
+{
+    "appId":  "com.generator.mine",
+    "appName":  "mine",
+    "webDir":  "build",
+    "plugins":  {
+                    "SplashScreen":  {
+                                         "launchShowDuration":  1500,
+                                         "launchAutoHide":  true,
+                                         "backgroundColor":  "#24d9c0",
+                                         "androidSplashResourceName":  "splash",
+                                         "androidScaleType":  "CENTER_CROP"
+                                     }
+                }
+}
