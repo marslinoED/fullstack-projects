@@ -1,77 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fullstack Projects Explorer</title>
-    <link rel="icon" type="image/png" href="assets/icons/home_icon.png">
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-</head>
+    <link rel="icon" type="image/png" href="assets/icons/home_icon.png" />
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1>Fullstack Projects Explorer</h1>
-        <p>Explore all projects in the <a href="https://github.com/MarslinoEd/fullstack-projects"
-                target="_blank">MarslinoEd/fullstack-projects</a> repository.</p>
-        <div id="loading" class="loading">Loading projects...</div>
-        <div id="error" class="error" style="display: none;"></div>
-        <ul id="project-list"></ul>
+      <h1>Fullstack Projects Explorer</h1>
+      <p>
+        Explore all projects in the
+        <a
+          href="https://github.com/MarslinoEd/fullstack-projects"
+          target="_blank"
+          >MarslinoEd/fullstack-projects</a
+        >
+        repository.
+      </p>
+      <div id="loading" class="loading">Loading projects...</div>
+      <div id="error" class="error" style="display: none"></div>
+      <ul id="project-list"></ul>
     </div>
 
     <script>
-        // Configuration
-        const owner = 'MarslinoEd';
-        const repo = 'fullstack-projects';
-        const baseGhPagesUrl = 'https://marslinoed.github.io/fullstack-projects/';
-        const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents`;
+      // Configuration
+      const owner = "MarslinoEd";
+      const repo = "fullstack-projects";
+      const baseGhPagesUrl = "https://marslinoed.github.io/fullstack-projects/";
+      const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents`;
 
-        // Optional: GitHub Personal Access Token for higher rate limits (leave empty if not using)
-        const token = '';
+      // Optional: GitHub Personal Access Token for higher rate limits (leave empty if not using)
+      const token = "";
 
-        // Function to fetch repository contents
-        async function fetchRepoContents() {
-            const projectList = document.getElementById('project-list');
-            const loading = document.getElementById('loading');
-            const errorDiv = document.getElementById('error');
+      // Function to fetch repository contents
+      async function fetchRepoContents() {
+        const projectList = document.getElementById("project-list");
+        const loading = document.getElementById("loading");
+        const errorDiv = document.getElementById("error");
 
-            try {
-                const headers = token ? { Authorization: `token ${token}` } : {};
-                const response = await fetch(apiUrl, { headers });
+        try {
+          const headers = token ? { Authorization: `token ${token}` } : {};
+          const response = await fetch(apiUrl, { headers });
 
-                if (!response.ok) {
-                    throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
-                }
+          if (!response.ok) {
+            throw new Error(
+              `GitHub API error: ${response.status} ${response.statusText}`,
+            );
+          }
 
-                const contents = await response.json();
+          const contents = await response.json();
 
-                // Filter for directories only (assumed to be projects)
-                const directories = contents.filter(item => item.type === 'dir');
+          // Filter for directories only (assumed to be projects)
+          const directories = contents.filter((item) => item.type === "dir");
 
-                if (directories.length === 0) {
-                    projectList.innerHTML = '<li>No project directories found in the repository.</li>';
-                    return;
-                }
+          if (directories.length === 0) {
+            projectList.innerHTML =
+              "<li>No project directories found in the repository.</li>";
+            return;
+          }
 
-                // Populate the project list with relative links for local development
-                directories.forEach(dir => {
-                    if (dir.name.startsWith('assets')) return; // Skip hidden directories
-                    const li = document.createElement('li');
-                    li.innerHTML = `<a href="${dir.name}/">${dir.name}</a>`;
-                    projectList.appendChild(li);
-                });
-
-            } catch (error) {
-                errorDiv.textContent = `Failed to load projects: ${error.message}`;
-                errorDiv.style.display = 'block';
-            } finally {
-                loading.style.display = 'none';
-            }
+          // Populate the project list with relative links for local development
+          directories.forEach((dir) => {
+            if (dir.name.startsWith("assets")) return; // Skip hidden directories
+            const li = document.createElement("li");
+            if (dir.name.startsWith("webApkGenerator"))
+              li.innerHTML = `<a href="https://github.com/marslinoED/fullstack-projects/tree/main/webApkGenerator"</a>`;
+            else li.innerHTML = `<a href="${dir.name}/">${dir.name}</a>`;
+            projectList.appendChild(li);
+          });
+        } catch (error) {
+          errorDiv.textContent = `Failed to load projects: ${error.message}`;
+          errorDiv.style.display = "block";
+        } finally {
+          loading.style.display = "none";
         }
+      }
 
-        // Call the function to fetch contents on page load
-        window.onload = fetchRepoContents;
+      // Call the function to fetch contents on page load
+      window.onload = fetchRepoContents;
     </script>
-</body>
-
+  </body>
 </html>
