@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">mine</string>
-  <string name="title_activity_main">mine</string>
-  <string name="package_name">com.generator.mine</string>
-  <string name="custom_url_scheme">com.generator.mine</string>
+  <string name="app_name">terminalSoul</string>
+  <string name="title_activity_main">terminalSoul</string>
+  <string name="package_name">com.generator.terminalsoul</string>
+  <string name="custom_url_scheme">com.generator.terminalsoul</string>
 </resources>

@@ -1,10 +1,10 @@
 {
-    "appId":  "com.generator.mine",
-    "appName":  "mine",
+    "appId":  "com.generator.terminalsoul",
+    "appName":  "terminalSoul",
     "webDir":  "build",
     "plugins":  {
                     "SplashScreen":  {
-                                         "launchShowDuration":  1500,
+                                         "launchShowDuration":  300,
                                          "launchAutoHide":  true,
                                          "backgroundColor":  "#24d9c0",
                                          "androidSplashResourceName":  "splash",
