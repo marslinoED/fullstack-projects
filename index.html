@@ -67,7 +67,7 @@
             if (dir.name.startsWith("assets")) return; // Skip hidden directories
             const li = document.createElement("li");
             if (dir.name.startsWith("webApkGenerator"))
-               li.innerHTML = `<a href="https://github.com/MarslinoEd/fullstack-projects/tree/main/${dir.name}">${dir.name}</a>`;
+               li.innerHTML = `<a href="https://github.com/MarslinoEd/fullstack-projects/tree/main/${dir.name}">💿 ${dir.name}</a>`;
             else li.innerHTML = `<a href="${dir.name}/">${dir.name}</a>`;
             projectList.appendChild(li);
           });
